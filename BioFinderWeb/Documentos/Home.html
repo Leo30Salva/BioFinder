@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BioFinder - Home</title>
+        <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600&family=Montserrat:wght@400;700&family=Nunito:wght@400;700&family=Open+Sans:wght@400;700&family=Poppins:wght@400;700&family=Quicksand:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../estilo.css">
+</head>
+<body>
+
+    <header class="header1Navigation">
+        
+        <div class="header1SectionLogoTitle">
+            <div class="header1LogoContainer">
+                <img src="../Multimedia/logo.png" alt="Logo" class="header1LogoImage">
+            </div>
+            <div class="header1TextContainer">
+                <h1 class="header1AppTitle">BioFinder</h1>
+                <span class="header1AppSubtitle">Conoce Aprende Cuida</span>
+            </div>
+        </div>
+
+        <nav class="header1SectionNav">
+            <ul class="header1IconList">
+                <li class="header1IconItem">
+                    <a href="inicio.html" class="header1IconLink">
+                        <img src="../Multimedia/Icons/homeIcon.png" alt="Inicio" class="header1NavIcon">
+                    </a>
+                </li>
+                <li class="header1IconItem">
+                    <a href="perfil.html" class="header1IconLink activePage1">
+                        <img src="../Multimedia/Icons/perfil.png" alt="Perfil" class="header1NavIcon">
+                    </a>
+                </li>
+                <li class="header1IconItem">
+                    <a href="configuracion.html" class="header1IconLink">
+                        <img src="../Multimedia/Icons/settingsIcon.png" alt="Ajustes" class="header1NavIcon">
+                    </a>
+                </li>
+                <li class="header1IconItem">
+                    <a href="favoritos.html" class="header1IconLink">
+                        <img src="../Multimedia/Icons/favoritesIcon.png" alt="Favoritos" class="header1NavIcon">
+                    </a>
+                </li>
+                <li class="header1IconItemSearch">
+                    <a href="buscar.html" class="header1IconLink">
+                        <img src="../Multimedia/Icons/historialIcon.png" alt="Buscar" class="header1NavIconSearch">
+                    </a>
+                </li>
+            </ul>
+        </nav>
+
+    </header>
+
+<main class="historialBox">
+    <section class="searchSection">
+        <h1 class="recommendationTitle">Animales recomendados</h1>
+        
+        <div class="searchContainer">
+            <div class="searchContainerHijo">
+                <img src="../Multimedia/Icons/historialIcon.png" alt="Inicio" class="searchIcon">
+                <input type="text" placeholder="Buscar animal..." class="searchInput">
+                <button id="openFilters" class="filterButton">
+                    <img src="../Multimedia/Icons/preferencesIcon.png" alt="Filtros">
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <hr class="separatorLine">
+
+    <section class="animalsGrid">
+
+        <div class="animalCard">
+            <span class="animalCardName">Mirlo</span>
+            <div class="animalCardImgBox greenBG">
+                <img src="../Multimedia/Animales/mirlo.png" alt="Mirlo">
+            </div>
+            <a href="descripcion.html" class="moreInfoLink">Más información</a>
+        </div>
+        <div class="animalCard">
+            <span class="animalCardName">Mirlo</span>
+            <div class="animalCardImgBox greenBG">
+                <img src="../Multimedia/Animales/mirlo.png" alt="Mirlo">
+            </div>
+            <a href="descripcion.html" class="moreInfoLink">Más información</a>
+        </div>
+        <div class="animalCard">
+            <span class="animalCardName">Mirlo</span>
+            <div class="animalCardImgBox greenBG">
+                <img src="../Multimedia/Animales/mirlo.png" alt="Mirlo">
+            </div>
+            <a href="descripcion.html" class="moreInfoLink">Más información</a>
+        </div>
+        <div class="animalCard">
+            <span class="animalCardName">Mirlo</span>
+            <div class="animalCardImgBox greenBG">
+                <img src="../Multimedia/Animales/mirlo.png" alt="Mirlo">
+            </div>
+            <a href="descripcion.html" class="moreInfoLink">Más información</a>
+        </div>
+        <div class="animalCard">
+            <span class="animalCardName">Mirlo</span>
+            <div class="animalCardImgBox greenBG">
+                <img src="../Multimedia/Animales/mirlo.png" alt="Mirlo">
+            </div>
+            <a href="descripcion.html" class="moreInfoLink">Más información</a>
+        </div>
+        <div class="animalCard">
+            <span class="animalCardName">Mirlo</span>
+            <div class="animalCardImgBox greenBG">
+                <img src="../Multimedia/Animales/mirlo.png" alt="Mirlo">
+            </div>
+            <a href="descripcion.html" class="moreInfoLink">Más información</a>
+        </div>
+        <div class="animalCard">
+            <span class="animalCardName">Mirlo</span>
+            <div class="animalCardImgBox greenBG">
+                <img src="../Multimedia/Animales/mirlo.png" alt="Mirlo">
+            </div>
+            <a href="descripcion.html" class="moreInfoLink">Más información</a>
+        </div>
+    </section>
+
+    <aside class="prefSidebarRight" id="filterPanel">
+        <div class="prefHeader">
+            <h2 class="prefTitle">Preferencias</h2>
+            <button id="closeFilters" class="buttonClose">×</button>
+        </div>
+
+        <div class="prefContent">
+            <div class="prefSection">
+                <h3 class="prefSubtitle">Tipo de Animal</h3>
+                <div class="prefGridSpecies">
+                    <label class="speciesItem"><input type="checkbox"><div class="speciesBox"><img src="../Multimedia/Especies/mamiferospng.png"><span>Mamíferos</span></div></label>
+                    <label class="speciesItem"><input type="checkbox"><div class="speciesBox"><img src="../Multimedia/Especies/ave.png"><span>Aves</span></div></label>
+                    <label class="speciesItem"><input type="checkbox"><div class="speciesBox"><img src="../Multimedia/Especies/peces.png"><span>Peces</span></div></label>
+                    <label class="speciesItem"><input type="checkbox"><div class="speciesBox"><img src="../Multimedia/Especies/insectos.png"><span>Insectos</span></div></label>
+                    <label class="speciesItem"><input type="checkbox"><div class="speciesBox"><img src="../Multimedia/Especies/reptiles.png"><span>Reptiles</span></div></label>
+                    <label class="speciesItem"><input type="checkbox"><div class="speciesBox"><img src="../Multimedia/Especies/aracnido.png"><span>Arácnidos</span></div></label>
+                    <label class="speciesItem"><input type="checkbox"><div class="speciesBox"><img src="../Multimedia/Especies/anfibio.png"><span>Anfibios</span></div></label>
+                    <label class="speciesItem"><input type="checkbox"><div class="speciesBox"><img src="../Multimedia/Especies/moluscos.png"><span>Moluscos</span></div></label>
+                </div>
+            </div>
+
+            <div class="prefSection">
+                <h3 class="prefSubtitle">Reproducción</h3>
+                <div class="prefRowReproduction">
+                    <label class="reproductionItem"><input type="radio" name="repro"><span class="reproductionText">Vivíparos</span></label>
+                    <label class="reproductionItem"><input type="radio" name="repro"><span class="reproductionText">Ovíparos</span></label>
+                    <label class="reproductionItem"><input type="radio" name="repro"><span class="reproductionText">Ovovivíparos</span></label>
+                </div>
+            </div>
+
+            <div class="prefSection">
+                <h3 class="prefSubtitle">Alimentación</h3>
+                <div class="prefGridAlim">
+                    <label class="customCheck"><input type="checkbox"><span class="checkMark"></span> Herbívoro</label>
+                    <label class="customCheck"><input type="checkbox"><span class="checkMark"></span> Carnívoro</label>
+                    <label class="customCheck"><input type="checkbox"><span class="checkMark"></span> Omnívoro</label>
+                    <label class="customCheck"><input type="checkbox"><span class="checkMark"></span> Detritívoro</label>
+                    <label class="customCheck"><input type="checkbox"><span class="checkMark"></span> Parásito</label>
+                    <label class="customCheck"><input type="checkbox"><span class="checkMark"></span> Frutívoro</label>
+                    <label class="customCheck"><input type="checkbox"><span class="checkMark"></span> Insectívoro</label>
+                    <label class="customCheck"><input type="checkbox"><span class="checkMark"></span> Carroñero</label>
+                    <label class="customCheck"><input type="checkbox"><span class="checkMark"></span> Piscívoro</label>
+                    <label class="customCheck"><input type="checkbox"><span class="checkMark"></span> Nectarívoro</label>
+                </div>
+            </div>
+
+            <div class="prefFooter">
+                <label class="extinctOption">
+                    <span>¿Incluir especies extintas?</span>
+                    <div class="switchExtinto">
+                        <input type="checkbox" id="extinctSwitch">
+                        <span class="customToggle"></span>
+                    </div>
+                </label>
+                <button class="buttonApply" id="applyFilters">Aplicar Filtros</button>
+            </div>
+        </div>
+    </aside>
+</main>
+
+<script>
+    const panel = document.getElementById('filterPanel');
+    const openBtn = document.getElementById('openFilters');
+    const closeBtn = document.getElementById('closeFilters');
+    const applyBtn = document.getElementById('applyFilters');
+
+    openBtn.onclick = () => panel.classList.add('active');
+    closeBtn.onclick = () => panel.classList.remove('active');
+    applyBtn.onclick = () => panel.classList.remove('active');
+</script>
+
+    <footer class="footer">
+        <div class="footerLeftSide">
+            <img src="../Multimedia/Icons/footprint.png" alt="Icono" class="footerIcon">
+            <p>&copy; 2026 BioFinder. Todos los derechos reservados</p>
+        </div>
+        <div class="footerRightSide">
+            <p>Terminos y condiciones</p>
+            <p>Privacidad</p>
+            <p>Ayuda</p>
+        </div>
+    </footer>
+
+</body>
+</html>

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BioFinder - Preferencias</title>
+        <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600&family=Montserrat:wght@400;700&family=Nunito:wght@400;700&family=Open+Sans:wght@400;700&family=Poppins:wght@400;700&family=Quicksand:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../estilo.css">
+</head>
+<body>
+
+    <header class="headerIndex">
+        <div class="logoContainer">
+            <img src="../Multimedia/logo.png" alt="Logo BioFinder" class="logoImage">
+        </div>
+        <div class="textContainerHeader">
+            <h1 class="appTitleHeader">BioFinder</h1>
+            <span class="appSubtitleHeader">Conoce - Aprende - Cuida</span>
+        </div>
+    </header>
+
+    <main class="bodyPreferencesContainer">
+        <section class="welcomeSection">
+            <div class="allTextPreferences">
+                <h1 class="welcomeTitle">¿Que especies prefieres?</h1>
+                <p class="welcomeSubtext">Te recomendaremos las especies de animales que más te gusten</p>
+            </div>
+            
+            <div class="containerImageWelcomeSection">
+                <img src="../Multimedia/animales.png" alt="Animales" class="imageWelcomeSection">
+            </div>
+        </section>
+
+        <section class="loginSection">
+            <div class="cardIndex preferencesCard">
+                <h2 class="loginTitle">¿Que animales prefieres?</h2>
+                <form class="preferencesForm">
+                    <div class="optionsPreferences">
+
+                        <div class="optionsEspecie">
+                            <label for="mamiferos">Mamíferos</label>
+                            <input type="radio" id="mamiferos" name="especie" value="mamiferos">
+                        </div>
+                        <div class="optionsEspecie">
+                            <label for="aves">Aves</label>
+                            <input type="radio" id="aves" name="especie" value="aves" checked>
+                        </div>
+                        <div class="optionsEspecie">
+                            <label for="reptiles">Reptiles</label>
+                            <input type="radio" id="reptiles" name="especie" value="reptiles">
+                        </div>
+                        <div class="optionsEspecie">
+                            <label for="anfibios">Anfibios</label>
+                            <input type="radio" id="anfibios" name="especie" value="anfibios">
+                        </div>
+
+                        <div class="optionsEspecie">
+                            <label for="peces">Peces</label>
+                            <input type="radio" id="peces" name="especie" value="peces">
+                        </div>
+                        <div class="optionsEspecie">
+                            <label for="insectos">Insectos</label>
+                            <input type="radio" id="insectos" name="especie" value="insectos">
+                        </div>
+                        <div class="optionsEspecie">
+                            <label for="aracnidos">Arácnidos</label>
+                            <input type="radio" id="aracnidos" name="especie" value="aracnidos">
+                        </div>
+                        <div class="optionsEspecie">
+                            <label for="moluscos">Moluscos</label>
+                            <input type="radio" id="moluscos" name="especie" value="moluscos">
+                        </div>
+
+                    </div>
+
+                    <button type="submit" class="continueButtonPreferences">Continuar</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footerLeftSide">
+            <img src="../Multimedia/Icons/footprint.png" alt="Icono" class="footerIcon">
+            <p>&copy; 2026 BioFinder. Todos los derechos reservados</p>
+        </div>
+        <div class="footerRightSide">
+            <p>Terminos y condiciones</p>
+            <p>Privacidad</p>
+            <p>Ayuda</p>
+        </div>
+    </footer>
+
+</body>
+</html>

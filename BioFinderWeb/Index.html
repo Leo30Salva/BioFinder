@@ -1,0 +1,87 @@
+
+<!DOCTYPE html>
+<html lang="es">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>BioFinder</title>
+        <!--  GOOGLE FONTS (Montserrat, Quicksand, Nunito, Poppins, Open Sans, Fredoka) -->
+        <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600&family=Montserrat:wght@400;700&family=Nunito:wght@400;700&family=Open+Sans:wght@400;700&family=Poppins:wght@400;700&family=Quicksand:wght@400;700&display=swap" rel="stylesheet">
+        <!-- Ruta al css -->
+        <link rel="stylesheet" href="estilo.css">
+    </head>
+    
+    <body>
+        
+        <header class="headerIndex">
+            
+            <div class="logoContainer">
+                <img src="Multimedia/logo.png" alt="Logo BioFinder" class="logoImage">
+            </div>
+
+            <div class="appTitleHeader">
+                <h1 class="appTitleHeader">BioFinder</h1>
+                <span class="appSubtitleHeader">Conoce - Aprende - Cuida</span>
+            </div>
+        
+        </header>
+
+        <main class="bodyIndex">
+            <!-- ESTA COLUMNA CONTIENE LA PARTE DE LA IZQUIERDA DEL BODY, LOS TEXTOS Y LA IMAGEN, LO SEPARO MEDIANTE SECTIONS -->
+            
+            <section class="welcomeSection">
+                <h1 class="welcomeTitle">Bienvenido</h1>
+                <p class="welcomeSubtext">
+                    Explora el mundo animal y descubre datos increíbles sobre tus especies favoritas
+                </p>
+                <div class="containerImageWelcomeSection">
+                    <img src="Multimedia/animales.png" alt="Ilustración de animales" class="imageWelcomeSection">
+                </div>
+            </section>
+
+        <!-- Columna Derecha: Login -->
+        <section class="loginSection">
+            <div class="cardIndex">
+                <h2 class="loginTitle">Ingresa tus credenciales</h2>
+                
+                <form class="loginForm">
+                    <input type="email" placeholder="Ingresa tu email" class="loginInput">
+                    <input type="password" placeholder="Ingresa tu contraseña" class="loginInput">
+                    <a href="#" class="forgotPassword">¿Olvidaste tu contraseña?</a>
+                    
+                    <button type="submit" class="loginButton">Iniciar sesión</button>
+                </form>
+
+                <div class="divider">
+                    <hr>
+                        <img src="Multimedia/Icons/footprint.png" alt="huella" class="dividerIcon">
+                    <hr>
+                </div>
+
+                <div class="registerText">
+                    <span>¿No tienes cuenta?</span>
+                    <a href="Documentos/Registro.html" class="registerLink">Regístrate aquí</a>
+                </div>
+            </div>
+        </section>
+        </main>
+
+        <footer class="footer">
+
+            <div class="footerLeftSide">
+                <img src="Multimedia/Icons/footprint.png" alt="Icono" class="footerIcon">
+                <p>&copy; 2026 BioFinder. Todos los derechos reservados</p>
+            </div>
+            
+            <div class="footerRightSide">
+                <p>Términos y condiciones</p>
+                <p>Privacidad</p>
+                <p>Ayuda</p>
+            </div>
+        
+        </footer>
+    
+    </body>
+
+</html>

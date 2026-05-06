@@ -1,0 +1,1399 @@
+/* 1. Montserrat: Moderna y profesional (Muy parecida a tu diseño) */
+    /* font-family: 'Montserrat', sans-serif; */
+
+    /* 2. Quicksand: Redondeada y muy amigable (Ideal para apps de animales) */
+    /* font-family: 'Quicksand', sans-serif; */
+
+    /* 3. Nunito: Equilibrada y suave (Efecto "App móvil" moderna) */
+    /* font-family: 'Nunito', sans-serif; */
+
+    /* 4. Poppins: La favorita de los diseñadores actuales (Muy limpia) */
+    /* font-family: 'Poppins', sans-serif; */
+
+    /* 5. Open Sans: La más legible y estándar del mundo web */
+    /* font-family: 'Open Sans', sans-serif; */
+
+    /* 6. Fredoka: Orgánica y juguetona (Perfecta para naturaleza) */
+    /* font-family: 'Fredoka', sans-serif; */
+
+body{
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    font-weight: 400;
+    background-color: #E6EAE0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* || HEADER || */
+
+.headerIndex {
+    padding: 20px 50px; 
+    display: flex; 
+    align-items: center; 
+}
+
+.logoContainer {
+    margin-right: 20px; 
+}
+
+.logoImage {
+    width: 110px; 
+    height: auto; 
+}
+
+.textContainerHeader {
+    display: flex;
+    flex-direction: column; 
+}
+
+.appTitleHeader {
+    font-family: 'Fredoka', sans-serif;
+    margin: 0;
+    font-size: 24px; 
+    font-weight: bold;
+    color: #44483D; 
+    line-height: 1.2; 
+}
+
+.appSubtitleHeader {
+    margin: 0; 
+    font-size: 14px; 
+    color: #1A1C16; 
+    font-weight: normal;
+}
+
+/* || FOOTER ||*/
+
+.footer {
+    background-color: #DCE7C8; 
+    padding: 15px 90px;
+    display: flex;
+    justify-content: space-between; 
+    align-items: center;
+    width: 100%;
+    height: 130px;
+    box-sizing: border-box; 
+}
+
+.footerLeftSide {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    color: #4A5D45; 
+    font-size: 16px;
+}
+
+.footerIcon {
+    width: 30px; 
+    height: auto;
+}
+
+.footerRightSide {
+    display: flex;
+    gap: 50px; 
+    color: #4A5D45;
+    font-size: 16px;
+}
+
+/* BODY DE LA PAGINA DE INICIO  */
+.bodyIndex {
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch;
+    padding: 0; 
+    flex: 1;
+}
+
+/* PARTE DE LA IZQUIERDA */
+.welcomeSection {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+}
+
+.welcomeTitle {
+    font-size: 45px;
+    color: #44483D;
+    padding-left: 90px; 
+    margin-top: 20px;   
+}
+
+.welcomeSubtext {
+    font-size: 25px;
+    color: #666;
+    line-height: 1.5;
+    margin-bottom: 30px;
+    padding-left: 90px; 
+    max-width: 600px;
+}
+
+.imageWelcomeSection {
+    max-width: 930px; 
+    height: auto;
+    display: block;
+}
+
+.containerImageWelcomeSection {
+    width: 100%;
+    margin-top: auto;
+    display: flex;
+    justify-content: flex-start; 
+}
+
+/* || PARTE DE LA DERECHA (EL CARD) || */
+.cardIndex {
+    background-color: #DADBD0;
+    padding: 40px;
+    border-radius: 40px; 
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    width: 550px;
+    height: 510px;
+    text-align: center;
+    margin-right: 70px;
+}
+
+.loginTitle {
+    font-size: 38px;
+    color: #44483D;
+    margin-bottom: 50px;
+}
+
+.loginForm{
+    margin-left: 40px;
+    margin-right: 40px;
+}
+
+.loginInput {
+    width: 100%;
+    padding-bottom: 20px;
+    padding-top: 20px;
+    margin-bottom: 20px;
+    border: none;
+    border-radius: 12px;
+    background-color: #DCE7C8; 
+}
+
+.forgotPassword {
+    display: block;
+    text-align: right;
+    font-size: 13px;
+    color: #354E16;
+    text-decoration: none;
+    margin-bottom: 35px;
+}
+
+.loginSection {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.loginButton {
+    width: 100%;
+    padding: 15px;
+    background-color: #586249; 
+    color: white;
+    border: none;
+    border-radius: 12px;
+    font-size: 17px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.loginButton:hover {
+    background-color: #4A5243;
+}
+
+.divider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 30px 0;
+    gap: 10px;
+}
+
+.divider hr {
+    flex-grow: 1;
+    border: 0;
+    border-top: 1px solid #999;
+}
+
+.dividerIcon {
+    width: 40px;
+    opacity: 0.7;
+}
+
+.registerText {
+    font-size: 15px;
+    color: #354E16;
+}
+
+.registerLink {
+    color: #354E16;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+/* || PAGINA DE REGISTRO  || */
+
+.registerCard {
+    width: 650px;
+    height: auto;
+    min-height: 550px;
+}
+
+.inputsRegister {
+    display: flex;
+    gap: 30px;
+    margin-bottom: 25px;
+}
+
+.inputsRegister .column {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.inputAndIconRegistro {
+    position: relative;
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.inputIcon {
+    position: absolute;
+    left: 15px;
+    width: 30px; 
+    height: auto;
+}
+
+.registerCard .loginInput {
+    width: 100%;
+    padding: 15px 15px 15px 60px; 
+    margin-bottom: 0; 
+}
+
+.securityInfoBox {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #BFCBAD; 
+    padding: 15px 25px;
+    border-radius: 15px;
+    margin-bottom: 30px;
+    gap: 15px;
+}
+
+.securityInfoBox p {
+    font-size: 13px;
+    color: #44483D;
+    margin: 0;
+    text-align: center;
+    line-height: 1.4;
+}
+
+.securityIcon {
+    width: 60px;
+    height: auto;
+}
+
+.createAccountButton {
+    width: 100%;
+    padding: 18px;
+    background-color: #586249;
+    color: white;
+    border: none;
+    border-radius: 15px;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.createAccountButton:hover {
+    background-color: #4A5243;
+    transform: translateY(-2px);
+}
+
+/* || PAGINA DE PREFERENCIAS || */
+
+.bodyPreferencesContainer {
+    display: flex;
+    flex: 1;
+    padding: 0;
+    align-items: stretch;
+}
+
+.welcomeSection {
+    width: 55%;
+    display: flex;
+    flex-direction: column;
+}
+
+.allTextPreferences {
+    margin-top: 40px; 
+}
+
+.containerImageWelcomeSection {
+    margin-top: auto;
+}
+
+.imageWelcomeSection {
+    width: 100%;
+    max-width: 800px;
+    display: block;
+}
+
+.loginSection {
+    width: 45%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;      
+    padding-right: 90px;
+}
+
+.optionsPreferences {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 50px;
+    row-gap: 40px;  
+    margin: 35px 0;
+}
+
+.optionsEspecie label {
+    font-family: 'Robotto', sans-serif;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.optionsEspecie {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* DECORACION DEL RADIO BUTTON */
+.optionsEspecie label {
+    font-size: 18px;
+    color: #44483D;
+    cursor: pointer;
+}
+
+.optionsEspecie input[type="radio"] {
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border: 2px solid #44483D;
+    border-radius: 50%;
+    cursor: pointer;
+    display: grid;
+    place-content: center;
+    margin: 0;
+}
+
+.optionsEspecie input[type="radio"]::before {
+    content: "";
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    transform: scale(0); 
+    transition: 120ms transform ease-in-out;
+    background-color: #44483D;
+}
+
+.optionsEspecie input[type="radio"]:checked::before {
+    transform: scale(1); 
+}
+
+.continueButtonPreferences {
+    width: 100%;             
+    padding: 18px;           
+    background-color: #586249;
+    color: white;            
+    border: none;            
+    border-radius: 15px;     
+    font-size: 24px;         
+    font-weight: bold;       
+    cursor: pointer;         
+    margin-top: 30px;        
+    transition: background-color 0.3s ease, transform 0.2s ease; 
+}
+
+.continueButtonPreferences:hover {
+    background-color: #4A5243;
+    transform: translateY(-2px); 
+}
+
+.continueButtonPreferences:active {
+    transform: translateY(0); 
+}
+
+/* || NUEVO HEADER DE NAVEGACIÓN || */
+
+
+.header1Navigation {
+    box-sizing: border-box;
+    width: 100%;
+    height: 130px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 90px;
+    background-color: #DCE7C8;
+}
+
+.header1SectionLogoTitle {
+    display: flex;
+    align-items: center;
+}
+
+.header1LogoContainer {
+    margin-right: 20px;
+}
+
+.header1LogoImage {
+    width: 100px;
+    height: auto;
+}
+
+.header1TextContainer {
+    display: flex;
+    flex-direction: column;
+}
+
+.header1AppTitle {
+    font-family: 'Fredoka', sans-serif;
+    font-size: 28px;
+    color: #44483D;
+    margin: 0;
+    line-height: 1.2;
+}
+
+.header1AppSubtitle {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+    color: #1A1C16;
+    margin: 0;
+}
+
+.header1SectionNav {
+    display: flex;
+    align-items: center;
+}
+
+.header1IconList {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 45px; /* Espaciado entre iconos según la imagen */
+    margin: 0;
+    padding: 0;
+}
+
+.header1IconItem, .header1IconItemSearch {
+    display: flex;
+    align-items: center;
+}
+
+.header1IconLink {
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+}
+
+/* Seleccionamos el enlace de la página activa */
+.header1IconLink.activePage1 {
+    border-bottom: 3px solid #586249; /* El color verde de tu diseño */
+    padding-bottom: 8px;              /* Espacio para que la raya no pegue al icono */
+    opacity: 1 !important;            /* Que se vea nítido */
+}
+
+.activePage1 .header1NavIcon {
+    opacity: 1 !important;
+}
+
+.header1NavIcon {
+    width: 50px;
+    height: auto;
+    transition: all 0.3s ease;
+}
+
+.header1NavIconSearch {
+    width: 28px;
+    height: auto;
+    transition: all 0.3s ease;
+}
+
+.header1IconLink:hover .header1NavIcon,
+.header1IconLink:hover .header1NavIconSearch {
+    opacity: 1;
+    transform: scale(1.1);
+}
+
+/* || PAGINA PERFIL || */
+
+.principalContainerPerfil {
+    display: flex;
+    flex: 1;
+    align-items: stretch;
+    padding: 0;
+}
+
+.welcome1Section {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+}
+
+.text1Top {
+    padding-left: 90px;
+    margin-top: 60px;
+}
+
+.welcome1Title {
+    font-family: 'Fredoka', sans-serif;
+    font-size: 2.8rem;
+    color: #44483D;
+    margin-bottom: 15px;
+}
+
+.welcome1Subtext {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.4rem;
+    color: #1A1C16;
+    max-width: 500px;
+    line-height: 1.4;
+}
+
+.image1Container {
+    margin-top: auto;
+    line-height: 0;
+}
+
+.image1Welcome {
+    width: 100%;
+    max-width: 750px;
+    display: block;
+}
+
+.perfilSection {
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.cardPerfil {
+    background-color: #BDC6B1;
+    width: 650px;
+    min-height: 350px; 
+    border-radius: 40px;
+    padding: 60px 50px; 
+    box-shadow: 15px 15px 40px rgba(0,0,0,0.3);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.perfilHeaderBox {
+    margin-bottom: 20px;
+}
+
+.perfilInfoBox {
+    display: flex;
+    align-items: center; 
+    gap: 25px;
+}
+
+.perfilCircle {
+    width: 110px;
+    height: 110px;
+    background-color: white; 
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden; 
+    border: 3px solid #DDE3D4;
+}
+
+.perfilAvatar {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.perfilUserName {
+    font-family: 'Fredoka', sans-serif;
+    font-size: 26px;
+    color: #333;
+    margin: 0;
+}
+
+.perfilEditButton {
+    background-color: #DDE3D4;
+    border: none;
+    padding: 10px 25px;
+    border-radius: 20px;
+    font-family: 'Fredoka', sans-serif;
+    color: #777;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.perfilSettingsBox {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 20px;
+}
+
+.perfilColumn {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 35px;
+}
+
+.perfilOptionItem {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 18px;
+    color: #333;
+}
+
+.perfilOptionIcon {
+    width: 32px;
+    height: auto;
+}
+
+.perfilDivisor {
+    width: 1.5px;
+    background-color: #444;
+    height: 180px; 
+    margin: 0 40px;
+    opacity: 0.4;
+}
+
+/* || PAGINA AJUSTES ||*/
+
+.SettingsContainer {
+    display: flex;
+    flex: 1;
+    align-items: stretch;
+}
+
+.welcomeSettingsSection {
+    width: 45%;
+    display: flex;
+    flex-direction: column;
+}
+
+.textSettingsBox {
+    padding-left: 90px;
+    margin-top: 60px;
+}
+
+.welcomeSettingsTitle {
+    font-family: 'Fredoka', sans-serif;
+    font-size: 2.8rem;
+    color: #44483D;
+    margin-bottom: 15px;
+}
+
+.welcomeSettingsSubtext {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.4rem;
+    color: #1A1C16;
+    max-width: 500px;
+    line-height: 1.4;
+}
+
+.imageSettingsContainer {
+    margin-top: auto;
+}
+
+.imageSettingsWelcome {
+    width: 100%;
+    max-width: 700px;
+    display: block;
+}
+
+.configSettingsSection {
+    width: 55%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+}
+
+.cardSettingsConfig {
+    background-color: #BFCBAD;
+    width: 750px;
+    border-radius: 40px;
+    padding: 60px;
+    box-shadow: 15px 15px 40px rgba(0,0,0,0.1);
+}
+
+.configSettingsTitle {
+    font-family: 'Fredoka', sans-serif;
+    font-size: 32px;
+    margin-bottom: 50px;
+    color: #44483D;
+}
+
+
+.configSettingsOptionsGrid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px 60px;
+    margin-bottom: 60px;
+}
+
+.configSettingsRow {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+}
+
+.configSettingsLabel {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 16px;
+    color: #333;
+}
+
+.configSettingsUnderline {
+    height: 1px;
+    background-color: #666;
+    opacity: 0.5;
+    width: 100%;
+}
+
+.switchSettings {
+    position: relative;
+    width: 55px;
+    height: 28px;
+}
+
+.sliderSettings {
+    position: absolute;
+    cursor: pointer;
+    top: 0; 
+    left: 0; 
+    right: 0; 
+    bottom: 0;
+    background-color: #ccc; 
+    transition: .4s;
+    border-radius: 34px;
+}
+
+.sliderSettings:before {
+    position: absolute;
+    content: "";
+    height: 20px; 
+    width: 20px;
+    left: 4px; 
+    bottom: 4px;
+    background-color: white;
+    transition: .4s;
+    border-radius: 50%;
+}
+
+input:checked + .sliderSettings { 
+    background-color: #586249; 
+}
+
+input:checked + .sliderSettings:before {
+    transform: translateX(26px);
+}
+
+.buttonSettingsDelete {
+    background-color: #B22222;
+    color: white;
+    border: none;
+    padding: 6px 20px;
+    border-radius: 15px;
+    font-family: 'Fredoka', sans-serif;
+    cursor: pointer;
+}
+
+.buttonSettingsSave {
+    width: 100%;
+    background-color: #4A5243;
+    color: white;
+    border: none;
+    padding: 18px;
+    border-radius: 15px;
+    font-family: 'Fredoka', sans-serif;
+    font-size: 20px;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    transition: background-color 0.3s;
+}
+
+.buttonSettingsSave:hover {
+    background-color: #3e4437;
+}
+
+/* || PAGINA ANIMAL DESCRIPTION ||*/
+
+.AnimalDescriptionContainer {
+    display: flex;
+    height: calc(100vh - 120px);  /* Para el funcionamiento del scroll de la card */
+    width: 100%;
+}
+
+.detailsLeftSectionAnimalDescription {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    padding: 60px;
+}
+
+.detailsHeaderAnimalDescription {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    margin-bottom: 80px;
+}
+
+.detailsBackButton img {
+    width: 50px; 
+    height: auto;
+}
+
+.detailsAnimalName {
+    font-family: 'Fredoka', sans-serif;
+    font-size: 65px;
+    color: #44483D;
+    margin: 0;
+}
+
+.animalImageCard {
+    width: 100%;    
+    border: 2px solid #000; 
+    border-radius: 80px;   
+    overflow: hidden;      
+    display: flex;
+}
+
+.mainAnimalImg {
+    width: 100%;
+    height: 100%;    
+    object-position: center; 
+}
+
+.iconAnimalDescription{
+    width: 40px;
+}
+
+.detailsRightSection {
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 30px;
+}
+
+.detailsInfoCard {
+    margin-top: 100px;
+    background-color: #D3DBC6;
+    width: 95%;
+    height: 95%;
+    border-radius: 70px;
+    padding: 50px;
+    overflow-y: auto; /* CON ESTO HABILITO EL SCROLL */
+}
+
+/* ESTILOS PARA EL SLIDER */
+.detailsInfoCard::-webkit-scrollbar {
+    width: 8px;
+}
+.detailsInfoCard::-webkit-scrollbar-thumb {
+    background: #586249;
+    border-radius: 10px;
+}
+
+/* GRID DE LAS ESTADÍSTICAS DEL ANIMAL */
+
+.detailsStatsGrid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+}
+
+.statBox {
+    background-color: rgba(255, 255, 255, 0.4);
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+}
+
+.statBox img {
+    height: 40px; 
+    width: auto;
+}
+
+.smallBox {
+    flex-direction: column;
+    justify-content: space-between;
+    height: 160px; /* Altura fija para alineación total */
+    padding: 10px 10px;
+}
+
+.bigBox {
+    grid-column: span 2;
+    flex-direction: row; 
+    justify-content: flex-start;
+    padding: 20px 30px;
+    gap: 20px;
+    height: auto; 
+}
+ 
+.bigBox .statText {
+    display: flex;
+    flex-direction: column;
+    text-align: left; 
+}
+
+.statLabel {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+    color: #555;
+}
+
+.statValue {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+    font-size: 18px;
+    color: #333;
+}
+
+.statCircle {
+    width: 90%;
+    padding: 6px 0px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+.purple { background-color: #C5B4E3; }
+.blue { background-color: #9FA8DA; }
+.yellow { background-color: #E6EE9C; }
+.grey { background-color: #CFD8DC; }
+
+.detailsMapContainer {
+    width: 100%;
+    height: 180px;
+    border-radius: 20px;
+    overflow: hidden;
+    margin-top: 10px;
+}
+
+.detailsMapContainer img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* || PAGINA DEL HISTORIAL || */
+
+.historialContainer {
+    padding: 60px 100px;
+    background-color: #E2E7D8; 
+}
+
+.historialTitle {
+    font-family: 'Fredoka', sans-serif;
+    font-size: 45px;
+    color: #1A1C16;
+    margin-bottom: 40px;
+}
+
+.historialItem {
+    margin-bottom: 15px;
+    border-bottom: 1px solid rgba(0,0,0,0.1);
+}
+
+.historialHeader {
+    list-style: none; 
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.8rem;
+    font-weight: bold;
+    cursor: pointer;
+    padding: 20px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: color 0.3s;
+}
+
+.historialHeader:hover {
+    color: #586249;
+}
+
+.historialItem[open] .arrow {
+    transform: rotate(90deg);
+}
+
+.arrow {
+    transition: transform 0.3s;
+    font-family: monospace;
+}
+
+.historialGallery {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    padding: 20px 0 40px 0;
+}
+
+.historialPhotoCard {
+    width: 100%;
+    aspect-ratio: 474 / 385;
+    border-radius: 30px;
+    border: 2px solid #000;
+    overflow: hidden;
+}
+
+.historialPhotoCard img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
+    transition: transform 0.3s;
+}
+
+.historialPhotoCard:hover img {
+    transform: scale(1.05); 
+}
+
+.historialHeader::-webkit-details-marker {
+    display: none;
+}
+
+/* || PAGINA DEL HOME || */
+
+.historialBox {
+    background-color: #E2E7D8;
+    min-height: 100vh;
+    padding: 40px 60px;
+    position: relative;
+    overflow-x: hidden;
+}
+
+.searchSection {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+}
+
+.recommendationTitle {
+    font-family: 'Fredoka', sans-serif;
+    font-size: 40px;
+    margin: 0;
+}
+
+.searchContainer { width: 45%; }
+
+.searchContainerHijo {
+    background-color: #BDC6B1;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    padding: 8px 15px;
+}
+
+.searchInput {
+    flex-grow: 1;
+    background: none;
+    border: none;
+    outline: none;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 15px;
+    padding: 5px 10px;
+}
+
+.searchIcon{
+    width: 4%;
+}
+
+.filterButton {
+    background: none;
+    border: none;
+    border-left: 1px solid rgba(0,0,0,0.1);
+    padding-left: 15px;
+    cursor: pointer;
+}
+
+.filterButton { 
+    img { width: 24px; height: auto; }
+}
+
+.separatorLine {
+    border: 0;
+    border-top: 2px solid rgba(0,0,0,0.1);
+    margin-bottom: 40px;
+}
+
+.animalsGrid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 40px;
+}
+
+.animalCard { display: flex; flex-direction: column; }
+
+.animalCardName {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+    font-size: 1.3rem;
+    margin-bottom: 15px;
+}
+
+.animalCardImgBox {
+    width: 100%;
+    aspect-ratio: 1.5 / 1;
+    border: 2px solid #000;
+    border-radius: 45px;
+    overflow: hidden;
+    margin-bottom: 10px;
+}
+
+.animalCardImgBox img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.moreInfoLink {
+    font-family: 'Montserrat', sans-serif;
+    text-decoration: none;
+    color: #555;
+    font-size: 0.9rem;
+    padding-left: 5px;
+}
+
+.prefSidebarRight {
+    position: fixed;
+    top: 0;
+    right: -550px;
+    width: 480px;
+    height: 100vh;
+    background-color: #D3DBC6;
+    z-index: 10000;
+    transition: right 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    display: flex;
+    flex-direction: column;
+    box-shadow: -15px 0 35px rgba(0,0,0,0.1);
+    border-radius: 60px 0 0 60px;
+}
+
+.prefSidebarRight.active { right: 0; }
+
+.prefHeader {
+    padding: 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.prefTitle { font-family: 'Fredoka', sans-serif; font-size: 2.2rem; margin: 0; }
+.buttonClose { background: none; border: none; font-size: 2.5rem; cursor: pointer; }
+
+.prefContent {
+    padding: 0 40px 40px 40px;
+    overflow-y: auto;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.prefSection { margin-bottom: 35px; }
+.prefSubtitle { font-family: 'Montserrat', sans-serif; font-weight: bold; margin-bottom: 15px; color: #444; }
+
+.prefGridSpecies {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+}
+
+.speciesItem input { display: none; }
+.speciesBox {
+    background: rgba(255, 255, 255, 0.4);
+    aspect-ratio: 1 / 1;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: 0.3s;
+    border: 2px solid transparent;
+}
+
+.speciesBox img { width: 32px; height: 32px; object-fit: contain; }
+.speciesBox span { font-size: 0.65rem; font-weight: bold; margin-top: 6px; }
+
+.speciesItem input:checked + .speciesBox {
+    background: #586249;
+    color: white;
+    border-color: #000;
+}
+.speciesItem input:checked + .speciesBox img { filter: brightness(0) invert(1); }
+
+.prefRowReproduction { display: flex; flex-wrap: wrap; gap: 10px; }
+.reproductionItem input { display: none; }
+.reproductionText {
+    padding: 10px 22px;
+    background: white;
+    border-radius: 25px;
+    font-size: 0.9rem;
+    cursor: pointer;
+}
+.reproductionItem input:checked + .reproductionText { background: #44483D; color: white; font-weight: bold; }
+
+/* CHECKBOXES PERSONALIZADOS */
+.prefGridAlim { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
+.customCheck { display: flex; align-items: center; gap: 12px; cursor: pointer; font-size: 0.9rem; }
+.customCheck input { display: none; }
+.checkMark { width: 22px; height: 22px; border: 2px solid #586249; border-radius: 7px; background: white; position: relative; }
+.customCheck input:checked + .checkMark { background: #586249; }
+.customCheck input:checked + .checkMark::after { content: '✓'; color: white; position: absolute; left: 4px; top: -2px; font-weight: bold; }
+
+/* FOOTER Y SWITCH */
+.prefFooter { margin-top: auto; padding-top: 20px; }
+.extinctOption {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(255,255,255,0.25);
+    padding: 15px 25px;
+    border-radius: 25px;
+    margin-bottom: 25px;
+}
+.switchExtinto input { display: none; }
+.customToggle {
+    display: block;
+    width: 45px;
+    height: 24px;
+    background: #bbb;
+    border-radius: 20px;
+    position: relative;
+    cursor: pointer;
+}
+.customToggle::before {
+    content: '';
+    position: absolute;
+    width: 18px;
+    height: 18px;
+    background: white;
+    border-radius: 50%;
+    top: 3px;
+    left: 4px;
+    transition: 0.3s;
+}
+.switchExtinto input:checked + .customToggle { background: #586249; }
+.switchExtinto input:checked + .customToggle::before { left: 23px; }
+
+.buttonApply {
+    width: 100%;
+    padding: 20px;
+    background: #44483D;
+    color: white;
+    border-radius: 35px;
+    border: none;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/* || PAGINA DE FAVORITOS || */
+
+.favoritosBox {
+    background-color: #E2E7D8;
+    min-height: 100vh;
+    padding: 60px 80px;
+}
+
+.favoritosTitle {
+    font-family: 'Fredoka', sans-serif;
+    font-size: 2.8rem;
+    color: #333;
+    margin-bottom: 50px;
+}
+
+.favoritosGrid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 columnas fijas */
+    gap: 40px;
+    align-items: start;
+}
+
+.favCard {
+    display: flex;
+    flex-direction: column;
+    transition: all 0.3s ease; /* Para que la desaparición sea suave */
+}
+
+.favCardName {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+    font-size: 1.3rem;
+    margin-bottom: 12px;
+}
+
+.favImgBox {
+    width: 100%;
+    aspect-ratio: 1.5 / 1;
+    border: 2px solid #000;
+    border-radius: 45px;
+    position: relative; /* Para posicionar el corazón dentro */
+    overflow: hidden;
+    margin-bottom: 10px;
+}
+
+.favImgBox img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.heartButton {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    width: 35px;
+    height: 35px;
+    background-color: white;
+    border: 1.5px solid #FF5C5C;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 1.2rem;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    transition: transform 0.2s;
+}
+
+.heartButton:hover {
+    transform: scale(1.1);
+}
+
+.favInfoLink {
+    font-family: 'Montserrat', sans-serif;
+    text-decoration: none;
+    color: #555;
+    font-size: 0.9rem;
+    padding-left: 5px;
+}
