@@ -157,7 +157,7 @@ def actualizar_usuario(user_id: int, user_data: UserRegister, db: Session = Depe
     if not usuario:
         raise HTTPException(status_code=404, detail="Usuario no encontrado")
     
-    # Actualizamos los campos
+    # Actualiza los campos
     usuario.NombreUsuario = user_data.NombreUsuario
     usuario.FechaNacimiento = user_data.FechaNacimiento
     usuario.Ciudad = user_data.Ciudad
@@ -170,6 +170,19 @@ def actualizar_usuario(user_id: int, user_data: UserRegister, db: Session = Depe
     except Exception as e:
         db.rollback()
         raise HTTPException(status_code=500, detail=f"Error al actualizar: {str(e)}")
+    
+# este endpoint lista por la especie seleccionada en la pagina de preferencias
+@api.get("/animales/filtrar")
+def filtrar_animales(especie: str, db: Session = Depends(get_db)):
+    # Buscamos animales donde la columna 'Especie' coincida con lo que manda el usuario
+    # Usamos .lower() para que no haya problemas con mayúsculas/minúsculas
+    animales = db.query(Animal).filter(Animal.Especie.ilike(f"%{especie}%")).all()
+    
+    if not animales:
+        # Si no hay de esa especie, podrías devolver una lista vacía o un error
+        return []
+    
+    return animales
     
 
 # --- ENDPOINT: OBTENER TODOS LOS ANIMALES ---

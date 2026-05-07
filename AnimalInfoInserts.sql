@@ -41,3 +41,33 @@ INSERT INTO animal (NombreAnimal, NombreCientifico, EsperanzaVida, FechaCreacion
 ('Viuda Negra', 'Latrodectus mactans', '1-3 años', NOW(), 'América', 'Ovíparos', 'Araña pequeña conocida por la mancha roja en su abdomen y su veneno neurotóxico.', 0, 'Insectívoro', 'Aracnido', 'Nocturna'),
 ('Escorpión Emperador', 'Pandinus imperator', '6-8 años', NOW(), 'África Occidental', 'Vivíparos', 'Uno de los escorpiones más grandes, brilla bajo luz ultravioleta.', 0, 'Insectívoro', 'Aracnido', 'Nocturna'),
 ('Tarántula Goliat', 'Theraphosa blondi', '15-25 años', NOW(), 'Selva Amazónica', 'Ovíparos', 'La araña más grande del mundo por masa, capaz de cazar pequeños pájaros.', 0, 'Insectívoro', 'Aracnido', 'Nocturna');
+
+-- 1) CRUSTÁCEOS
+INSERT INTO animal (NombreAnimal, NombreCientifico, EsperanzaVida, FechaCreacion, Ubicacion, Reproduccion, Descripcion, ImagenURL, Extinto, TipoAlimentacion, Especie, Actividad) VALUES
+('Cangrejo Cocotero', 'Birgus latro', '60 años', NOW(), 'Islas del Océano Índico', 'Ovípara', 'El artrópodo terrestre más pesado del mundo, capaz de abrir cocos.', 'https://raw.githubusercontent.com/USUARIO/REPO/main/img/cangrejo_cocotero.png', FALSE, 'Omnívoro', 'Crustáceo', 'Nocturna'),
+('Bogavante Europeo', 'Homarus gammarus', '50 años', NOW(), 'Océano Atlántico', 'Ovípara', 'Gran crustáceo de color azulado antes de ser cocinado, con pinzas poderosas.', 'https://raw.githubusercontent.com/USUARIO/REPO/main/img/bogavante.png', FALSE, 'Carroñero', 'Crustáceo', 'Nocturna'),
+('Krill Antártico', 'Euphausia superba', '6 años', NOW(), 'Antártida', 'Ovípara', 'Pequeño crustáceo base de la cadena alimenticia de ballenas y pingüinos.', 'https://raw.githubusercontent.com/USUARIO/REPO/main/img/krill.png', FALSE, 'Omnívoro', 'Crustáceo', 'Diurna');
+
+-- 2) MOLUSCOS
+INSERT INTO animal (NombreAnimal, NombreCientifico, EsperanzaVida, FechaCreacion, Ubicacion, Reproduccion, Descripcion, ImagenURL, Extinto, TipoAlimentacion, Especie, Actividad) VALUES
+('Calamar Gigante', 'Architeuthis dux', '5 años', NOW(), 'Abismos oceánicos', 'Ovípara', 'Molusco cefalópodo de dimensiones míticas que vive en las profundidades.', 'https://raw.githubusercontent.com/USUARIO/REPO/main/img/calamar_gigante.png', FALSE, 'Carnívoro', 'Molusco', 'Nocturna'),
+('Caracol de Jardín', 'Cornu aspersum', '7 años', NOW(), 'Europa y Norteamérica', 'Ovípara (Hermafrodita)', 'Molusco terrestre con concha en espiral conocido por su lentitud.', 'https://raw.githubusercontent.com/USUARIO/REPO/main/img/caracol.png', FALSE, 'Herbívoro', 'Molusco', 'Nocturna'),
+('Sepia Común', 'Sepia officinalis', '2 años', NOW(), 'Mar Mediterráneo', 'Ovípara', 'Maestra del camuflaje capaz de cambiar de color y textura en segundos.', 'https://raw.githubusercontent.com/USUARIO/REPO/main/img/sepia.png', FALSE, 'Carnívoro', 'Molusco', 'Diurna');
+
+-- 3) EQUINODERMOS
+INSERT INTO animal (NombreAnimal, NombreCientifico, EsperanzaVida, FechaCreacion, Ubicacion, Reproduccion, Descripcion, ImagenURL, Extinto, TipoAlimentacion, Especie, Actividad) VALUES
+('Estrella de Mar Común', 'Asterias rubens', '10 años', NOW(), 'Atlántico Norte', 'Ovípara / Fragmentación', 'Equinodermo con capacidad de regenerar sus brazos perdidos.', 'https://raw.githubusercontent.com/USUARIO/REPO/main/img/estrella_mar.png', FALSE, 'Carnívoro', 'Equinodermo', 'Diurna'),
+('Erizo de Mar', 'Paracentrotus lividus', '20 años', NOW(), 'Fondos rocosos', 'Ovípara', 'Cuerpo globoso cubierto de púas móviles para defensa y movimiento.', 'https://raw.githubusercontent.com/USUARIO/REPO/main/img/erizo_mar.png', FALSE, 'Herbívoro', 'Equinodermo', 'Nocturna'),
+('Pepino de Mar', 'Holothuroidea', '10 años', NOW(), 'Lecho marino', 'Ovípara', 'Animal con forma de gusano que limpia el fondo marino filtrando arena.', 'https://raw.githubusercontent.com/USUARIO/REPO/main/img/pepino_mar.png', FALSE, 'Detritívoros', 'Equinodermo', 'Nocturna');
+
+-- 4) CNIDARIOS
+INSERT INTO animal (NombreAnimal, NombreCientifico, EsperanzaVida, FechaCreacion, Ubicacion, Reproduccion, Descripcion, ImagenURL, Extinto, TipoAlimentacion, Especie, Actividad) VALUES
+('Avispa de Mar', 'Chironex fleckeri', '1 año', NOW(), 'Aguas australianas', 'Sexual y Asexual', 'La medusa más letal del mundo, posee tentáculos extremadamente venenosos.', 'https://raw.githubusercontent.com/USUARIO/REPO/main/img/avispa_mar.png', FALSE, 'Carnívoro', 'Cnidario', 'Diurna'),
+('Anémona de Mar', 'Actiniaria', '50 años', NOW(), 'Arrecifes de coral', 'Sexual y Asexual', 'Animales sésiles que parecen plantas marinas y viven en simbiosis con peces.', 'https://raw.githubusercontent.com/USUARIO/REPO/main/img/anemona.png', FALSE, 'Carnívoro', 'Cnidario', 'Diurna'),
+('Coral Cerebro', 'Diploria labyrinthiformis', '100+ años', NOW(), 'Mar Caribe', 'Asexual (Brotación)', 'Cnidario colonial que forma estructuras calcáreas similares a un cerebro.', 'https://raw.githubusercontent.com/USUARIO/REPO/main/img/coral.png', FALSE, 'Omnívoro', 'Cnidario', 'Nocturna');
+
+-- 5) ANÉLIDOS
+INSERT INTO animal (NombreAnimal, NombreCientifico, EsperanzaVida, FechaCreacion, Ubicacion, Reproduccion, Descripcion, ImagenURL, Extinto, TipoAlimentacion, Especie, Actividad) VALUES
+('Lombriz de Tierra', 'Lumbricus terrestris', '6 años', NOW(), 'Suelos húmedos', 'Ovípara (Hermafrodita)', 'Anélido esencial para la aireación y fertilidad de los suelos agrícolas.', 'https://raw.githubusercontent.com/USUARIO/REPO/main/img/lombriz.png', FALSE, 'Detritívoros', 'Anélido', 'Nocturna'),
+('Sanguijuela', 'Hirudo medicinalis', '25 años', NOW(), 'Agua dulce', 'Ovípara', 'Anélido parásito conocido por alimentarse de sangre de vertebrados.', 'https://raw.githubusercontent.com/USUARIO/REPO/main/img/sanguijuela.png', FALSE, 'Carnívoro', 'Anélido', 'Diurna'),
+('Gusano Árbol de Navidad', 'Spirobranchus giganteus', '30 años', NOW(), 'Arrecifes tropicales', 'Ovípara', 'Anélido poliqueto que vive en tubos y posee coloridas branquias espirales.', 'https://raw.githubusercontent.com/USUARIO/REPO/main/img/gusano_navidad.png', FALSE, 'Omnívoro', 'Anélido', 'Diurna');

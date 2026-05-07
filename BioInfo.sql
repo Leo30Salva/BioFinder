@@ -23,7 +23,8 @@ CREATE TABLE animal (
     FechaCreacion DATETIME NOT NULL,
     Ubicacion VARCHAR(40) NOT NULL,
     Reproduccion VARCHAR(40) NOT NULL,
-    Descripcion VARCHAR(500) NOT NULL, -- Aumentado a 500 para que quepan datos reales
+    Descripcion VARCHAR(500) NOT NULL,
+    ImagenURL VARCHAR(500) NOT NULL,
     Extinto BOOL NOT NULL,
     TipoAlimentacion VARCHAR(30) NOT NULL,
     Especie VARCHAR(30) NOT NULL,

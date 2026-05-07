@@ -23,7 +23,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     // Almaceno el ID para mostrar luego los datos en perfil
                     localStorage.setItem('userId', resultado.id);
                     localStorage.setItem('userName', resultado.nombre);
-                    window.location.href = "Documentos/Home.html"; 
+                    window.location.href = "Documentos/Preferencias.html"; 
                 } else {
                     alert("Error: " + resultado.detail);
                 }

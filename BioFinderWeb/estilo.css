@@ -674,6 +674,11 @@ body{
     height: auto;
 }
 
+.SalirLink{
+    text-decoration: none;
+    color: inherit;
+}
+
 .perfilDivisor {
     width: 1.5px;
     background-color: #444;
