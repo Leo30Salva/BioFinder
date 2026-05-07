@@ -24,28 +24,28 @@
         <nav class="header1SectionNav">
             <ul class="header1IconList">
                 <li class="header1IconItem">
-                    <a href="inicio.html" class="header1IconLink">
+                    <a href="Home.html" class="header1IconLink">
                         <img src="../Multimedia/Icons/homeIcon.png" alt="Inicio" class="header1NavIcon">
                     </a>
                 </li>
                 <li class="header1IconItem">
-                    <a href="perfil.html" class="header1IconLink activePage1">
+                    <a href="Perfil.html" class="header1IconLink activePage1">
                         <img src="../Multimedia/Icons/perfil.png" alt="Perfil" class="header1NavIcon">
                     </a>
                 </li>
                 <li class="header1IconItem">
-                    <a href="configuracion.html" class="header1IconLink">
+                    <a href="Ajustes.html" class="header1IconLink">
                         <img src="../Multimedia/Icons/settingsIcon.png" alt="Ajustes" class="header1NavIcon">
                     </a>
                 </li>
                 <li class="header1IconItem">
-                    <a href="favoritos.html" class="header1IconLink">
+                    <a href="Favorites.html" class="header1IconLink">
                         <img src="../Multimedia/Icons/favoritesIcon.png" alt="Favoritos" class="header1NavIcon">
                     </a>
                 </li>
                 <li class="header1IconItemSearch">
-                    <a href="buscar.html" class="header1IconLink">
-                        <img src="../Multimedia/Icons/historialIcon.png" alt="Buscar" class="header1NavIconSearch">
+                    <a href="Historial.html" class="header1IconLink">
+                        <img src="../Multimedia/Icons/historialIcon.png" alt="Historial" class="header1NavIconSearch">
                     </a>
                 </li>
             </ul>
@@ -66,55 +66,53 @@
             </div>
         </section>
 
-        <section class="perfilSection">
-            <div class="cardPerfil">
-                
-                <div class="perfilHeaderBox">
-                    <div class="perfilInfoBox">
-                        <div class="perfilCircle">
-                            <img src="../Multimedia/susana.png" alt="Foto de perfil" class="perfilAvatar">
-                        </div>
-                        <h2 class="perfilUserName">Susana Díaz</h2>
-                        <button class="perfilEditButton">Editar</button>
-                    </div>
+<section class="perfilSection">
+    <div class="cardPerfil">
+        
+        <div class="perfilHeaderBox">
+            <div class="perfilInfoBox">
+                <div class="perfilCircle">
+                    <img src="../Multimedia/susana.png" alt="Foto de perfil" class="perfilAvatar">
                 </div>
+                <h2 class="perfilUserName" id="perfilNombre">Cargando...</h2>
+                <button class="perfilEditButton">Editar</button> </div>
+        </div>
 
-                <div class="perfilSettingsBox">
-                    <div class="perfilColumn">
-                        <div class="perfilOptionItem">
-                            <img src="../Multimedia/Icons/userIcon.png" alt="icon" class="perfilOptionIcon">
-                            <span>23/12/2006</span>
-                        </div>
-                        <div class="perfilOptionItem">
-                            <img src="../Multimedia/Icons/locationIcon.png" alt="icon" class="perfilOptionIcon">
-                            <span>Valencia</span>
-                        </div>
-                        <div class="perfilOptionItem">
-                            <img src="../Multimedia/Icons/emaiIcon.png" alt="icon" class="perfilOptionIcon">
-                            <span>susana@gmail.com</span>
-                        </div>
-                    </div>
-
-                    <div class="perfilDivisor"></div>
-
-                    <!-- Columna Derecha -->
-                    <div class="perfilColumn">
-                        <div class="perfilOptionItem">
-                            <img src="../Multimedia/Icons/webIcon.png" alt="icon" class="perfilOptionIcon">
-                            <span>Acceso web</span>
-                        </div>
-                        <div class="perfilOptionItem">
-                            <img src="../Multimedia/Icons/settingsIcon.png" alt="icon" class="perfilOptionIcon">
-                            <span>Cambiar información</span>
-                        </div>
-                        <div class="perfilOptionItem">
-                            <img src="../Multimedia/Icons/exitIcon.png" alt="icon" class="perfilOptionIcon">
-                            <span>Salir</span>
-                        </div>
-                    </div>
+        <div class="perfilSettingsBox">
+            <div class="perfilColumn">
+                <div class="perfilOptionItem">
+                    <img src="../Multimedia/Icons/userIcon.png" alt="icon" class="perfilOptionIcon">
+                    <span id="perfilFecha">--/--/----</span>
+                </div>
+                <div class="perfilOptionItem">
+                    <img src="../Multimedia/Icons/locationIcon.png" alt="icon" class="perfilOptionIcon">
+                    <span id="perfilCP">Ciudad</span>
+                </div>
+                <div class="perfilOptionItem">
+                    <img src="../Multimedia/Icons/emaiIcon.png" alt="icon" class="perfilOptionIcon">
+                    <span id="perfilEmail">email@ejemplo.com</span>
                 </div>
             </div>
-        </section>
+
+            <div class="perfilDivisor"></div>
+
+            <div class="perfilColumn">
+                <div class="perfilOptionItem">
+                    <img src="../Multimedia/Icons/webIcon.png" alt="icon" class="perfilOptionIcon">
+                    <span>Acceso web</span>
+                </div>
+                <div class="perfilOptionItem" id="btnCambiarInfo" style="cursor: pointer;">
+                    <img src="../Multimedia/Icons/settingsIcon.png" alt="icon" class="perfilOptionIcon">
+                    <span>Cambiar información</span>
+                </div>
+                <div class="perfilOptionItem">
+                    <img src="../Multimedia/Icons/exitIcon.png" alt="icon" class="perfilOptionIcon">
+                    <span><a href="../Index.html" class="header1IconLink">Salir</a></span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
     </main>
 
     <footer class="footer">
@@ -128,6 +126,8 @@
             <p>Ayuda</p>
         </div>
     </footer>
+
+    <script src="../JavaScript/Perfil.js"></script>
 
 </body>
 </html>

@@ -46,15 +46,15 @@
                     <div class="column">
                         <div class="inputAndIconRegistro">
                             <img src="../Multimedia/Icons/userIcon.png" alt="icon" class="inputIcon">
-                            <input type="text" placeholder="Nombre completo" class="loginInput">
+                            <input type="text" placeholder="Nombre completo" class="loginInput" id="regNombre">
                         </div>
                         <div class="inputAndIconRegistro">
                             <img src="../Multimedia/Icons/fechaIcon.png" alt="icon" class="inputIcon">
-                            <input type="date" placeholder="Fecha de nacimiento" class="loginInput">
+                            <input type="date" placeholder="Fecha de nacimiento" class="loginInput" id="regFecha">
                         </div>
                         <div class="inputAndIconRegistro">
                             <img src="../Multimedia/Icons/locationIcon.png" alt="icon" class="inputIcon">
-                            <input type="text" placeholder="Ciudad" class="loginInput">
+                            <input type="text" placeholder="Ciudad" class="loginInput" id="regCiudad">
                         </div>
                     </div>
 
@@ -62,11 +62,11 @@
                     <div class="column">
                         <div class="inputAndIconRegistro">
                             <img src="../Multimedia/Icons/emaiIcon.png" alt="icon" class="inputIcon">
-                            <input type="email" placeholder="Ingresa tu email" class="loginInput">
+                            <input type="email" placeholder="Ingresa tu email" class="loginInput" id="regEmail">
                         </div>
                         <div class="inputAndIconRegistro">
                             <img src="../Multimedia/Icons/passwordIcon.png" alt="icon" class="inputIcon">
-                            <input type="password" placeholder="Ingresa tu contraseña" class="loginInput">
+                            <input type="password" placeholder="Ingresa tu contraseña" class="loginInput" id="regPassword">
                         </div>
                     </div>
                 </div>
@@ -79,7 +79,7 @@
                 </div>
 
                 <!-- Botón de crear cuenta (Sin nada debajo) -->
-                <button type="submit" class="createAccountButton">Crear cuenta</button>
+                <button type="submit" id="createAccountButton">Crear cuenta</button>
             </form>
         </div>
     </section>
@@ -98,6 +98,8 @@
             <p>Ayuda</p>
         </div>
     </footer>
+
+        <script src="../JavaScript/Registro.js"></script>
 
 </body>
 </html>

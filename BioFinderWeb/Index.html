@@ -40,17 +40,16 @@
                 </div>
             </section>
 
-        <!-- Columna Derecha: Login -->
         <section class="loginSection">
             <div class="cardIndex">
                 <h2 class="loginTitle">Ingresa tus credenciales</h2>
                 
                 <form class="loginForm">
-                    <input type="email" placeholder="Ingresa tu email" class="loginInput">
-                    <input type="password" placeholder="Ingresa tu contraseña" class="loginInput">
+                    <input type="email" placeholder="Ingresa tu email" class="loginInput" id="logEmail">
+                    <input type="password" placeholder="Ingresa tu contraseña" class="loginInput" id="logPassword">
                     <a href="#" class="forgotPassword">¿Olvidaste tu contraseña?</a>
                     
-                    <button type="submit" class="loginButton">Iniciar sesión</button>
+                    <button type="submit" id="loginButton">Iniciar sesión</button>
                 </form>
 
                 <div class="divider">
@@ -81,6 +80,9 @@
             </div>
         
         </footer>
+
+        <!-- Referenca al java script -->
+        <script src="JavaScript/Login.js"></script>
     
     </body>
 
