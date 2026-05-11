@@ -4,8 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BioFinder - Descripción</title>
-        <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600&family=Montserrat:wght@400;700&family=Nunito:wght@400;700&family=Open+Sans:wght@400;700&family=Poppins:wght@400;700&family=Quicksand:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600&family=Montserrat:wght@400;700&family=Nunito:wght@400;700&family=Open+Sans:wght@400;700&family=Poppins:wght@400;700&family=Quicksand:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../estilo.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 </head>
 <body>
 
@@ -13,14 +15,14 @@
     
     <section class="detailsLeftSectionAnimalDescription">
         <div class="detailsHeaderAnimalDescription">
-            <a href="buscar.html" class="detailsBackButton">
+            <a href="Home.html" class="detailsBackButton">
                 <img src="../Multimedia/Icons/arrow.png" alt="Atrás">
             </a>
             <h1 class="detailsAnimalName">Mirlo</h1>
         </div>
 
         <div class="animalImageCard">
-            <img src="../Multimedia/Animales/Mirlo.png" alt="Mirlo" class="mainAnimalImg">
+            <img src="../Multimedia/Animales/Mirlo.png" alt="Mirlo" class="mainAnimalImg" id="imgAnimal">
         </div>
     </section>
 
@@ -32,49 +34,47 @@
                     <img src="../Multimedia/Icons/activitieIcon.png" alt="Actividad" class="iconAnimalDescription">
                     <div class="statText">
                         <span class="statLabel">Actividad</span>
-                        <span class="statValue">Diurna</span>
+                        <span class="statValue" id="valActividad">Diurna</span>
                     </div>
                 </div>
                 <div class="statBox bigBox">
                     <img src="../Multimedia/Icons/cientificIcon.png" alt="Nombre" class="iconAnimalDescription">
                     <div class="statText">
                         <span class="statLabel">Nombre Científico</span>
-                        <span class="statValue italic">Mirlinus</span>
+                        <span class="statValue italic" id="valNombreCientifico">Mirlinus</span>
                     </div>
                 </div>
                 
                 <div class="statBox smallBox">
                     <img src="../Multimedia/Icons/footprint.png" alt="Especie" class="iconAnimalDescription">
                     <span class="statLabel">Especie</span>
-                    <span class="statCircle purple">Ave</span>
+                    <span class="statCircle purple" id="valEspecie">Ave</span>
                 </div>
                 <div class="statBox smallBox">
                     <img src="../Multimedia/Icons/lifeIcon.png" alt="Vida" class="iconAnimalDescription">
                     <span class="statLabel">Vida</span>
-                    <span class="statCircle blue">5 años</span>
+                    <span class="statCircle blue" id="valVida">5 años</span>
                 </div>
                 <div class="statBox smallBox">
                     <img src="../Multimedia/Icons/foodIcon.png" alt="Alimentación" class="iconAnimalDescription">
                     <span class="statLabel">Alimentación</span>
-                    <span class="statCircle yellow">Omnívoro</span>
+                    <span class="statCircle yellow" id="valAlim">Omnívoro</span>
                 </div>
                 <div class="statBox smallBox">
                     <img src="../Multimedia/Icons/extintoIcon.png" alt="Extinto" class="iconAnimalDescription">
                     <span class="statLabel">Extinto</span>
-                    <span class="statCircle grey">No</span>
+                    <span class="statCircle grey" id="valExtinto">No</span>
                 </div>
             </div>
 
             <div class="detailsSectionContent">
                 <h3 class="detailsSectionTitle">Ubicación</h3>
-                <div class="detailsMapContainer">
-                    <img src="../Multimedia/mapa-ejemplo.png" alt="Mapa">
-                </div>
+                <div id="map" style="height: 400px; width: 100%; border-radius: 15px;"></div>
             </div>
 
             <div class="detailsSectionContent">
                 <h3 class="detailsSectionTitle">Descripción</h3>
-                <p class="detailsParagraph">
+                <p class="detailsParagraph" id="descTexto">
                     El mirlo común es un ave inconfundible que destaca por su elegante plumaje negro azabache. Habitante habitual de jardines y bosques, se mueve con saltos ágiles buscando alimento.
                 </p>
                 <p class="detailsParagraph">
@@ -82,15 +82,27 @@
                 </p>
             </div>
 
-            <div class="detailsSectionContent">
-                <h3 class="detailsSectionTitle">Reproducción</h3>
-                <p class="detailsParagraph">
-                    Ovíparo. La hembra pone de 3 a 5 huevos azulados con manchas oscuras en un nido construido cuidadosamente con ramas y barro.
-                </p>
+            <div class="detailsTwoColumnsRow">
+                <div class="columnItem">
+                    <h3 class="detailsSectionTitle centerText">Reproducción</h3>
+                    <p class="detailsParagraph centerText" id="reproTexto">Ovíparo</p>
+                </div>
+
+                <div class="verticalDivider"></div>
+
+                <div class="columnItem">
+                    <h3 class="detailsSectionTitle centerText">Favoritos</h3>
+                    <div class="favCheckboxContainer">
+                        <input type="checkbox" id="checkFavorito" class="customFavCheckbox">
+                        <label for="checkFavorito" class="checkboxLabel"></label>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 </main>
+
+<script src="../JavaScript/Descripcion.js"></script>
 
 </body>
 </html>

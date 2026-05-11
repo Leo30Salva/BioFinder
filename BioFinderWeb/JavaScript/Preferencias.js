@@ -4,21 +4,14 @@ document.addEventListener("DOMContentLoaded", () => {
     form.addEventListener('submit', (e) => {
         e.preventDefault();
 
-        // 1. Buscamos cuál de los radio buttons está marcado
         const seleccion = document.querySelector('input[name="especie"]:checked');
 
+        // SI el botón de preferencia está siendo seleccionado se guarda en el localStorage
         if (seleccion) {
-            const especieFavorita = seleccion.value;
-            
-            // 2. Guardamos la preferencia en localStorage
-            localStorage.setItem('preferenciaEspecie', especieFavorita);
-            
-            console.log("Preferencia guardada:", especieFavorita);
-
-            // 3. Redirigimos al Home
-            window.location.href = "./Home.html";
+            localStorage.setItem('preferenciaEspecie', seleccion.value);
+            window.location.href = "Home.html";
         } else {
-            alert("Por favor, selecciona una especie antes de continuar.");
+            alert("Por favor, selecciona una especie.");
         }
     });
 });

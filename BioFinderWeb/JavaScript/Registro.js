@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", () => {
         event.preventDefault(); // Bloqueo la recarga de página del formulario al pulsar el botón
 
         try {
-            // Recogemos los valores
+            // Recojo los valores
             const nombre = document.getElementById('regNombre').value;
             const email = document.getElementById('regEmail').value;
             const fecha = document.getElementById('regFecha').value;
@@ -30,6 +30,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
             const resultado = await respuesta.json();
 
+            // Si sale bien redirecciono a la página de login, en caso contrario indico que los datos son erroneos
             if (respuesta.ok) {
                 alert("¡Registro exitoso! Bienvenido, " + resultado.NombreUsuario);
                 window.location.href = "../Index.html"; 

@@ -2,35 +2,36 @@ document.addEventListener("DOMContentLoaded", async () => {
     const userId = localStorage.getItem('userId');
     const form = document.querySelector('.loginForm');
 
+    // Si no se encuentra el ID del usuario redirige hacia la página de inicio de sesión
     if (!userId) {
         window.location.href = "../Index.html";
         return;
     }
 
-    // --- PASO 1: CARGAR LOS DATOS ACTUALES ---
     try {
+        // Llamo a la función de la API para cargar la información del usuario
         const respuesta = await fetch(`http://127.0.0.1:8000/usuario/${userId}`);
         if (respuesta.ok) {
             const datos = await respuesta.json();
             
-            // Rellenamos los inputs con los datos de la base de datos
+            // Los datos por defecto tendrán el valor que ya tenían anteriormente, por si el usuario no quiere
+            // cambiar sus valores
             document.getElementById('regNombre').value = datos.NombreUsuario;
             document.getElementById('regFecha').value = datos.FechaNacimiento;
             document.getElementById('regCiudad').value = datos.Ciudad;
             document.getElementById('regEmail').value = datos.Email;
             // La contraseña la dejamos vacía por seguridad para que la escriba de nuevo
             
-            // Cambiamos el texto del botón de "Crear cuenta" a "Guardar cambios"
             document.getElementById('createAccountButton').textContent = "Guardar cambios";
         }
     } catch (error) {
         console.error("Error al obtener datos:", error);
     }
 
-    // --- PASO 2: ENVIAR LOS CAMBIOS (PUT) ---
+    // 
     form.addEventListener('submit', async (e) => {
         e.preventDefault();
-
+        // Los datos nuevos que el usuario ha ingresado
         const datosActualizados = {
             NombreUsuario: document.getElementById('regNombre').value,
             FechaNacimiento: document.getElementById('regFecha').value,
@@ -44,7 +45,9 @@ document.addEventListener("DOMContentLoaded", async () => {
             return;
         }
 
+
         try {
+            // Llamo a la función de la API para actualizar la información
             const respuesta = await fetch(`http://127.0.0.1:8000/usuario/actualizar/${userId}`, {
                 method: 'PUT',
                 headers: { 'Content-Type': 'application/json' },

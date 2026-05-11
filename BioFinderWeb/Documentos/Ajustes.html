@@ -38,12 +38,12 @@
                         <img src="../Multimedia/Icons/settingsIcon.png" alt="Ajustes" class="header1NavIcon">
                     </a>
                 </li>
-                <li class="header1IconItem">
+                <li class="header1IconItem" id="navFavorites">
                     <a href="Favorites.html" class="header1IconLink">
                         <img src="../Multimedia/Icons/favoritesIcon.png" alt="Favoritos" class="header1NavIcon">
                     </a>
                 </li>
-                <li class="header1IconItemSearch">
+                <li class="header1IconItemSearch" id="navHistorial">
                     <a href="Historial.html" class="header1IconLink">
                         <img src="../Multimedia/Icons/historialIcon.png" alt="Historial" class="header1NavIconSearch">
                     </a>
@@ -54,7 +54,6 @@
     </header>
 
     <main class="SettingsContainer">
-    <!-- SECCIÓN IZQUIERDA: MENSAJE E IMAGEN -->
     <section class="welcomeSettingsSection">
         <div class="textSettingsBox">
             <h1 class="welcomeSettingsTitle">¡Acomoda todo a tu gusto!</h1>
@@ -67,49 +66,43 @@
         </div>
     </section>
 
-    <!-- SECCIÓN DERECHA: CARD DE CONFIGURACIÓN -->
     <section class="configSettingsSection">
         <div class="cardSettingsConfig">
             <h2 class="configSettingsTitle">Configura tus preferencias</h2>
 
             <div class="configSettingsOptionsGrid">
-                <!-- Opción 1: Modo Oscuro -->
-                <div class="configSettingsItem">
-                    <div class="configSettingsRow">
-                        <span class="configSettingsLabel">Poner modo oscuro</span>
-                        <label class="switchSettings">
-                            <input type="checkbox">
-                            <span class="sliderSettings"></span>
-                        </label>
-                    </div>
-                    <div class="configSettingsUnderline"></div>
+            <div class="configSettingsItem">
+                <div class="configSettingsRow">
+                    <span class="configSettingsLabel">Mostrar favoritos</span>
+                    <label class="switchSettings">
+                        <input type="checkbox" id="checkFavs"> 
+                        <span class="sliderSettings"></span>
+                    </label>
                 </div>
+                <div class="configSettingsUnderline"></div>
+            </div>
 
-                <!-- Opción 2: Notificaciones -->
-                <div class="configSettingsItem">
-                    <div class="configSettingsRow">
-                        <span class="configSettingsLabel">Permitir notificaciones</span>
-                        <label class="switchSettings">
-                            <input type="checkbox" checked>
-                            <span class="sliderSettings"></span>
-                        </label>
-                    </div>
-                    <div class="configSettingsUnderline"></div>
+            <div class="configSettingsItem">
+                <div class="configSettingsRow">
+                    <span class="configSettingsLabel">Mostrar historial</span>
+                    <label class="switchSettings">
+                        <input type="checkbox" id="checkHistorial">
+                        <span class="sliderSettings"></span>
+                    </label>
                 </div>
-
-                <!-- Opción 3: Recomendados -->
+                <div class="configSettingsUnderline"></div>
+            </div>
                 <div class="configSettingsItem">
                     <div class="configSettingsRow">
                         <span class="configSettingsLabel">Mostrar recomendados</span>
                         <label class="switchSettings">
-                            <input type="checkbox" checked>
+                            <input type="checkbox" id="checkRecomendados">
                             <span class="sliderSettings"></span>
                         </label>
                     </div>
                     <div class="configSettingsUnderline"></div>
                 </div>
 
-                <!-- Opción 4: Borrar Cuenta -->
                 <div class="configSettingsItem">
                     <div class="configSettingsRow">
                         <span class="configSettingsLabel">Borrar cuenta</span>
@@ -136,5 +129,7 @@
         </div>
     </footer>
 
+    <script src="../JavaScript/Ajustes.js"></script>
+    <script src="../JavaScript/Global.js"></script>
 </body>
 </html>

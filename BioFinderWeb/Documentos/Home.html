@@ -6,6 +6,7 @@
     <title>BioFinder - Home</title>
         <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600&family=Montserrat:wght@400;700&family=Nunito:wght@400;700&family=Open+Sans:wght@400;700&family=Poppins:wght@400;700&family=Quicksand:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../estilo.css">
+    <meta name="referrer" content="no-referrer">
 </head>
 <body>
 
@@ -38,13 +39,13 @@
                         <img src="../Multimedia/Icons/settingsIcon.png" alt="Ajustes" class="header1NavIcon">
                     </a>
                 </li>
-                <li class="header1IconItem">
+                <li class="header1IconItem" id="navFavorites">
                     <a href="Favorites.html" class="header1IconLink">
                         <img src="../Multimedia/Icons/favoritesIcon.png" alt="Favoritos" class="header1NavIcon">
                     </a>
                 </li>
                 <li class="header1IconItemSearch">
-                    <a href="Historial.html" class="header1IconLink">
+                    <a href="Historial.html" class="header1IconLink" id="navHistorial">
                         <img src="../Multimedia/Icons/historialIcon.png" alt="Historial" class="header1NavIconSearch">
                     </a>
                 </li>
@@ -98,9 +99,18 @@
             <div class="prefSection">
                 <h3 class="prefSubtitle">Reproducción</h3>
                 <div class="prefRowReproduction">
-                    <label class="reproductionItem"><input type="radio" name="repro"><span class="reproductionText">Vivíparos</span></label>
-                    <label class="reproductionItem"><input type="radio" name="repro"><span class="reproductionText">Ovíparos</span></label>
-                    <label class="reproductionItem"><input type="radio" name="repro"><span class="reproductionText">Ovovivíparos</span></label>
+                    <label class="reproductionItem">
+                        <input type="checkbox" value="Vivíparos">
+                        <span class="reproductionText">Vivíparos</span>
+                    </label>
+                    <label class="reproductionItem">
+                        <input type="checkbox" value="Ovíparos">
+                        <span class="reproductionText">Ovíparos</span>
+                    </label>
+                    <label class="reproductionItem">
+                        <input type="checkbox" value="Ovovivíparos">
+                        <span class="reproductionText">Ovovivíparos</span>
+                    </label>
                 </div>
             </div>
 
@@ -134,17 +144,6 @@
     </aside>
 </main>
 
-<script>
-    const panel = document.getElementById('filterPanel');
-    const openBtn = document.getElementById('openFilters');
-    const closeBtn = document.getElementById('closeFilters');
-    const applyBtn = document.getElementById('applyFilters');
-
-    openBtn.onclick = () => panel.classList.add('active');
-    closeBtn.onclick = () => panel.classList.remove('active');
-    applyBtn.onclick = () => panel.classList.remove('active');
-</script>
-
     <script src="../JavaScript/Home.js"></script>
 
     <footer class="footer">
@@ -159,5 +158,6 @@
         </div>
     </footer>
 
+    <script src="../JavaScript/Global.js"></script>
 </body>
 </html>

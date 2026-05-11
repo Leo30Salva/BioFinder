@@ -54,65 +54,12 @@
     </header>
 
     <main class="favoritosBox">
-    <h1 class="favoritosTitle">Animales favoritos</h1>
+        <h1 class="favoritosTitle">Animales favoritos</h1>
 
-    <section class="favoritosGrid" id="favoritesGrid">
-        
-        <div class="favCard">
-            <span class="favCardName">Cernícalo</span>
-            <div class="favImgBox blueBG">
-                <img src="../Multimedia/Animales/mirlo.png" alt="Cernícalo">
-                <button class="heartButton active" onclick="removeFavorite(this)">❤️</button>
-            </div>
-            <a href="descripcion.html" class="favInfoLink">Más información</a>
-        </div>
+        <section class="favoritosGrid" id="favoritesGrid">
 
-        <div class="favCard">
-            <span class="favCardName">Mirlo</span>
-            <div class="favImgBox greenBG">
-                <img src="../Multimedia/Animales/mirlo.png" alt="Mirlo">
-                <button class="heartButton active" onclick="removeFavorite(this)">❤️</button>
-            </div>
-            <a href="descripcion.html" class="favInfoLink">Más información</a>
-        </div>
-
-        <div class="favCard">
-            <span class="favCardName">Colibrí</span>
-            <div class="favImgBox greenBG">
-                <img src="../Multimedia/Animales/mirlo.png" alt="Colibrí">
-                <button class="heartButton active" onclick="removeFavorite(this)">❤️</button>
-            </div>
-            <a href="descripcion.html" class="favInfoLink">Más información</a>
-        </div>
-
-        <div class="favCard">
-            <span class="favCardName">Martín Pescador</span>
-            <div class="favImgBox greenBG">
-                <img src="../Multimedia/Animales/mirlo.png" alt="Martín Pescador">
-                <button class="heartButton active" onclick="removeFavorite(this)">❤️</button>
-            </div>
-            <a href="descripcion.html" class="favInfoLink">Más información</a>
-        </div>
-
-    </section>
-</main>
-
-<script>
-    // Función para eliminar el animal y recolocar el resto
-    function removeFavorite(button) {
-        // Buscamos la tarjeta (favCard) que contiene el botón pulsado
-        const card = button.closest('.favCard');
-        
-        // Añadimos una clase de animación para que desaparezca suavemente
-        card.style.opacity = '0';
-        card.style.transform = 'scale(0.8)';
-        
-        // Esperamos a que termine la animación (300ms) y lo eliminamos del HTML
-        setTimeout(() => {
-            card.remove();
-        }, 300);
-    }
-</script>
+        </section>
+    </main>
 
     <footer class="footer">
         <div class="footerLeftSide">
@@ -125,6 +72,9 @@
             <p>Ayuda</p>
         </div>
     </footer>
+
+    <script src="../JavaScript/Global.js"></script>
+    <script src="../JavaScript/Favoritos.js"></script>
 
 </body>
 </html>

@@ -21,7 +21,7 @@ CREATE TABLE animal (
     NombreCientifico VARCHAR(50) NOT NULL,
     EsperanzaVida VARCHAR(25) NOT NULL,
     FechaCreacion DATETIME NOT NULL,
-    Ubicacion VARCHAR(40) NOT NULL,
+    Ubicacion VARCHAR(1000) NOT NULL,
     Reproduccion VARCHAR(40) NOT NULL,
     Descripcion VARCHAR(500) NOT NULL,
     ImagenURL VARCHAR(500) NOT NULL,
@@ -36,8 +36,8 @@ CREATE TABLE animal (
 );
 
 -- Tabla Favoritos
-CREATE TABLE Favoritos (
-    idFavoritos INT AUTO_INCREMENT PRIMARY KEY,
+CREATE TABLE favoritos (
+    IdFavorito INT AUTO_INCREMENT PRIMARY KEY,
     IdUser INT NOT NULL, -- Primero creamos la columna
     IdAnimal INT NOT NULL, -- Primero creamos la columna
     FOREIGN KEY (IdUser) REFERENCES usuario(IdUser) ON DELETE CASCADE ON UPDATE CASCADE,
@@ -45,10 +45,12 @@ CREATE TABLE Favoritos (
 );
 
 -- Tabla Historial
-CREATE TABLE Historial (
+CREATE TABLE historial (
     idHistorial INT AUTO_INCREMENT PRIMARY KEY,
     IdUser INT NOT NULL,
     IdAnimal INT NOT NULL,
+    CantidadConsultas INT DEFAULT 0,
+    UltimaConsulta DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
     FOREIGN KEY (IdUser) REFERENCES usuario(IdUser) ON DELETE CASCADE ON UPDATE CASCADE,
     FOREIGN KEY (IdAnimal) REFERENCES animal(IdAnimal) ON DELETE CASCADE ON UPDATE CASCADE
 );

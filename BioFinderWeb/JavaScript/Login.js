@@ -18,14 +18,20 @@ document.addEventListener("DOMContentLoaded", () => {
 
                 const resultado = await respuesta.json();
 
+                // Si todo es correcto, y la contraseña coincide con el correo indicado entonces accederá a la sesión y entrará 
+                // en la cuenta
                 if (respuesta.ok) {
                     alert("¡Bienvenido de nuevo, " + resultado.nombre + "!");
-                    // Almaceno el ID para mostrar luego los datos en perfil
-                    localStorage.setItem('userId', resultado.id);
+                    
+                    // Guardo userId en localStorage para usarlo en adelante para comprobaciones 
+                    localStorage.setItem('userId', resultado.id); 
                     localStorage.setItem('userName', resultado.nombre);
+                    
+                    // Una vez se inicie sesión activo los recomendados por defecto nada más iniciar sesión
+                    localStorage.setItem('mostrarRecomendados', 'true');
+                    
+                    // Hago la referencia a la página de preferencias
                     window.location.href = "Documentos/Preferencias.html"; 
-                } else {
-                    alert("Error: " + resultado.detail);
                 }
             } catch (error) {
                 console.error("Error de conexión:", error);
