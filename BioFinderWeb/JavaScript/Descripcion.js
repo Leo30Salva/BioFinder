@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     const animalId = params.get('id');
     const checkFavorito = document.getElementById('checkFavorito');
 
-    const userId = localStorage.getItem('usuariosId'); 
+    const userId = localStorage.getItem('userId'); 
     
     // Actualizo el historial del usuario cuando el usuario entra a la página de descripción del animal
     if (userId && animalId) {
@@ -75,7 +75,7 @@ document.addEventListener("DOMContentLoaded", async () => {
                 const animalId = params.get('id');
                 
                 // Cojo la referencia del ID del usuario para saber que usuario es el que esta guardando ese animal en favoritos
-                const userId = localStorage.getItem('usuariosId'); 
+                const userId = localStorage.getItem('userId'); 
 
                 // Si no se encuentra la referencia al ID de usuario o animal le indico que es necesario que inicie
                 // sesión para poder guardarle en la pantalla de favoritos al respectivo animal

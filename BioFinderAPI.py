@@ -5,6 +5,7 @@ from sqlalchemy import create_engine, Column, Integer, String, Date, DateTime, F
 from sqlalchemy.orm import declarative_base, sessionmaker, Session
 from datetime import date, datetime
 from fastapi.middleware.cors import CORSMiddleware
+from passlib.context import CryptContext # para cifrar las contraseñas
 
 # ========================================================================
 # 1) CONEXIÓN A MariaDB (Base de datos: animal)
@@ -109,6 +110,9 @@ def get_db():
     finally:
         db.close()
 
+# Variable del cifrado bcrypt
+pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
+
 # endpoint para el registro de usuario
 @api.post("/registro", response_model=UserResponse)
 def registrar_usuario(user_data: UserRegister, db: Session = Depends(get_db)):
@@ -119,6 +123,9 @@ def registrar_usuario(user_data: UserRegister, db: Session = Depends(get_db)):
     if email_exists:
         raise HTTPException(status_code=400, detail="El email ya está registrado.")
     
+    # Hasheo la contraseña que el usuario introdujo
+    hashed_password = pwd_context.hash(user_data.Password)
+    
     # Creo el nuevo usuario
     nuevo_usuario = Usuario(
         NombreUsuario=user_data.NombreUsuario,
@@ -126,7 +133,7 @@ def registrar_usuario(user_data: UserRegister, db: Session = Depends(get_db)):
         FechaNacimiento=user_data.FechaNacimiento,
         Ciudad=user_data.Ciudad,
         Email=user_data.Email,
-        Password=user_data.Password
+        Password=hashed_password
     )
     
     try:
@@ -144,12 +151,19 @@ def login(user_credentials: UserLogin, db: Session = Depends(get_db)):
     # Busco al usuario por email
     usuario = db.query(Usuario).filter(Usuario.Email == user_credentials.Email).first()
     
-    # Verifico si existe y si la contraseña es correcta
-    if not usuario or usuario.Password != user_credentials.Password:
+    # Verifico si existe el usuario
+    if not usuario:
+        raise HTTPException(status_code=401, detail="Email o contraseña incorrectos")
+    
+    # Compruebo con verify que la contraseña hasheada en la base de datos sea la mismo que la introducida en el login
+    # de manera que nunca sera descifrado el hash de la base de datos
+    if not pwd_context.verify(user_credentials.Password, usuario.Password):
         raise HTTPException(status_code=401, detail="Email o contraseña incorrectos")
     
     # Si todo está bien informo
-    return {"mensaje": "Login exitoso", "nombre": usuario.NombreUsuario, "id": usuario.IdUser}
+    return {"mensaje": "Login exitoso", 
+            "nombre": usuario.NombreUsuario, 
+            "id": usuario.IdUser}
 
 # endpoint para obtener la información del perfil y mostrarla
 @api.get("/usuario/{user_id}")
@@ -178,8 +192,11 @@ def actualizar_usuario(user_id: int, user_data: UserRegister, db: Session = Depe
     usuario.FechaNacimiento = user_data.FechaNacimiento
     usuario.Ciudad = user_data.Ciudad
     usuario.Email = user_data.Email
-    usuario.Password = user_data.Password
-    
+
+    # Si el usuario cambia la contraseña la guardo hasheada
+    if user_data.Password:
+        usuario.Password = pwd_context.hash(user_data.Password)
+
     try:
         db.commit()
         return {"mensaje": "Información actualizada correctamente"}

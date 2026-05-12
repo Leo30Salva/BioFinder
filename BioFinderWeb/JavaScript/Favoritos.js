@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", async () => {
-    const userId = localStorage.getItem('usuariosId'); 
+    const userId = localStorage.getItem('userId'); 
     const grid = document.getElementById('favoritesGrid');
     // Para empezar busco el ID del usuario, para poder cargar sus respectivos favoritos cargados
     if (!userId) {

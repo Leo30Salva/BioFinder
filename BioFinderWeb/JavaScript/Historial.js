@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", async () => {
     const contenedor = document.querySelector('.historialGallery');
-    const userId = localStorage.getItem('usuariosId');
+    const userId = localStorage.getItem('userId');
 
     // Si no se encuentra el usuario se le indica que debe iniciar sesión para que se pueda mostrar su historial
     if (!userId) {
