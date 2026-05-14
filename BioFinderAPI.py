@@ -223,7 +223,7 @@ def filtrar_animales(especie: str, db: Session = Depends(get_db)):
     animales = db.query(Animal).filter(Animal.Especie.ilike(f"%{busqueda}%")).all()
     return animales
 
-from sqlalchemy import or_ # Importa esto arriba con los demás de sqlalchemy
+from sqlalchemy import or_ 
 
 # Endpoint para el filtrado de animales
 @api.get("/animales/filtrar_avanzado")

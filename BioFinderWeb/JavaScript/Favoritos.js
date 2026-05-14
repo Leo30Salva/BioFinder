@@ -45,7 +45,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
 // Función para borrar los favoritos del usuario
 async function removeFavorite(button, animalId) {
-    const userId = localStorage.getItem('usuariosId'); 
+    const userId = localStorage.getItem('userId'); 
     const card = button.closest('.favCard');
 
     if (!userId) return;
