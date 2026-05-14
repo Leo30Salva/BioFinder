@@ -30,6 +30,7 @@ class Usuario(Base):
     Ciudad = Column(Integer, nullable=False)
     Email = Column(String(30), nullable=False, unique=True)
     Password = Column(String(30), nullable=False)
+    ImagenPerfil = Column(String(500), nullable=True)
 
 class Animal(Base):
     __tablename__ = "animal"
@@ -176,7 +177,8 @@ def obtener_perfil(user_id: int, db: Session = Depends(get_db)):
         "NombreUsuario": usuario.NombreUsuario,
         "Email": usuario.Email,
         "FechaNacimiento": usuario.FechaNacimiento,
-        "Ciudad": usuario.Ciudad 
+        "Ciudad": usuario.Ciudad,
+        "ImagenPerfil": usuario.ImagenPerfil
     }
 
 # endpoint que modifica la informacion del usuario 
@@ -398,3 +400,17 @@ def eliminar_favorito(user_id: int, animal_id: int, db: Session = Depends(get_db
 @api.get("/animales")
 def listar_animales(db: Session = Depends(get_db)):
     return db.query(Animal).all()
+
+# endpoint para  cambiar la foto perfil
+@api.put("/usuarios/{user_id}/foto")
+async def actualizar_foto_perfil(user_id: int, nueva_url: str, db: Session = Depends(get_db)):
+
+    usuario = db.query(Usuario).filter(Usuario.IdUser == user_id).first()
+    
+    if not usuario:
+        raise HTTPException(status_code=404, detail="Usuario no encontrado")
+    
+    usuario.ImagenPerfil = nueva_url 
+    
+    db.commit()
+    return {"message": "Foto actualizada correctamente", "url": nueva_url}

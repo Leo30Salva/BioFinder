@@ -11,6 +11,7 @@ CREATE TABLE usuario (
     FechaNacimiento DATE NOT NULL,
     Ciudad VARCHAR(30) NOT NULL,
     Email VARCHAR(30) NOT NULL,
+	ImagenPerfil VARCHAR(500) NOT NULL,
     Password VARCHAR(255) NOT NULL
 );
 
