@@ -1335,7 +1335,7 @@ input:checked + .sliderSettings:before {
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    transition: all 0.3s ease; /* Animación suave para el cambio de color */
+    transition: all 0.3s ease; 
     border: 2px solid transparent;
 }
 
@@ -1440,7 +1440,7 @@ input:checked + .sliderSettings:before {
 
 .favoritosGrid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr); /* 4 columnas fijas */
+    grid-template-columns: repeat(4, 1fr); 
     gap: 40px;
     align-items: start;
 }
@@ -1448,7 +1448,7 @@ input:checked + .sliderSettings:before {
 .favCard {
     display: flex;
     flex-direction: column;
-    transition: all 0.3s ease; /* Para que la desaparición sea suave */
+    transition: all 0.3s ease; 
 }
 
 .favCardName {
@@ -1463,7 +1463,7 @@ input:checked + .sliderSettings:before {
     aspect-ratio: 1.5 / 1;
     border: 2px solid #000;
     border-radius: 45px;
-    position: relative; /* Para posicionar el corazón dentro */
+    position: relative; 
     overflow: hidden;
     margin-bottom: 10px;
 }
@@ -1504,9 +1504,40 @@ input:checked + .sliderSettings:before {
     padding-left: 5px;
 }
 
-/* || PAGINA DE CAMBIAR FOTO || */
+/* boton para exportar a JSON */
 
-/* --- DISEÑO WEB GIGANTE (5 COLUMNAS) --- */
+.btnExportarFloating {
+    position: fixed;
+    bottom: 40px;
+    right: 40px;
+    padding: 15px 25px;
+    background-color: #586249; 
+    color: white;
+    border: none;
+    border-radius: 50px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    transition: all 0.3s ease;
+    z-index: 1000;
+}
+
+.btnExportarFloating:hover {
+    transform: scale(1.1);
+    background-color: #434b37;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.4);
+}
+
+.btnExportarFloating:active {
+    transform: scale(0.95);
+}
+
+.btnExportarFloating.hidden {
+    display: none;
+}
+
+/* || PAGINA DE CAMBIAR FOTO || */
 
 .bodyCambiarFoto {
     margin: 0 !important;
@@ -1514,7 +1545,7 @@ input:checked + .sliderSettings:before {
     height: 100vh;
     width: 100vw;
     background-color: #f4f7f4;
-    overflow: hidden; /* El scroll general se bloquea */
+    overflow: hidden; 
 }
 
 .cajaFoto {
@@ -1523,7 +1554,6 @@ input:checked + .sliderSettings:before {
     height: 100vh;
 }
 
-/* TÍTULO IMPACTANTE */
 .headerFoto {
     padding: 40px 0;
     background: white;
@@ -1532,7 +1562,7 @@ input:checked + .sliderSettings:before {
 }
 
 .tituloCambiarFoto {
-    font-size: 5.5rem !important; /* Un poco más grande aún */
+    font-size: 120px !important; 
     font-weight: 900;
     margin: 0;
     color: #1a1a1a;
@@ -1540,14 +1570,13 @@ input:checked + .sliderSettings:before {
     letter-spacing: -3px;
 }
 
-/* GRID ESTRICTO DE 5 COLUMNAS */
 .gridCambiarFoto {
     flex: 1;
     display: grid;
-    grid-template-columns: repeat(5, 1fr); /* 5 columnas iguales */
-    gap: 25px; /* Espacio entre fotos ajustado para 5 columnas */
-    padding: 40px 5%; /* Menos margen lateral para aprovechar el ancho */
-    overflow-y: auto; /* Solo el área de fotos tiene scroll */
+    grid-template-columns: repeat(5, 1fr); 
+    gap: 25px; 
+    padding: 40px 5%; 
+    overflow-y: auto; 
 }
 
 .elegirFoto {
@@ -1584,12 +1613,12 @@ input:checked + .sliderSettings:before {
 .botonGuardarFoto {
     width: 90%; 
     max-width: 1200px;
-    height: 130px; /* Altura masiva */
-    background-color: #4CAF50;
+    height: 130px; 
+    background-color: #586249;
     color: white;
     border: none;
     border-radius: 65px;
-    font-size: 3.5rem; /* Texto muy grande */
+    font-size: 40px; 
     font-weight: 900;
     text-transform: uppercase;
     cursor: pointer;

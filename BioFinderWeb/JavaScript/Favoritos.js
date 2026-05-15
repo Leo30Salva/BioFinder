@@ -1,6 +1,9 @@
+let listaFavoritosGlobal = [];
+
 document.addEventListener("DOMContentLoaded", async () => {
     const userId = localStorage.getItem('userId'); 
     const grid = document.getElementById('favoritesGrid');
+    const btnExportar = document.getElementById('btnExportarJSON');
     // Para empezar busco el ID del usuario, para poder cargar sus respectivos favoritos cargados
     if (!userId) {
         console.warn("No hay ID de usuario en localStorage");
@@ -12,6 +15,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     try {
         const respuesta = await fetch(`http://127.0.0.1:8000/favoritos/usuario/${userId}`);
         const favoritos = await respuesta.json();
+        listaFavoritosGlobal = favoritos;
 
         if (!grid) return;
         grid.innerHTML = ""; 
@@ -57,6 +61,8 @@ async function removeFavorite(button, animalId) {
         });
 
         if (respuesta.ok) {
+            // AÑADE ESTA LÍNEA:
+            listaFavoritosGlobal = listaFavoritosGlobal.filter(a => a.IdAnimal !== animalId);
             // Si todo funciona correctamente el animal será borrado de la tabla de favoritos del usuario
             // mostrando una animación en pantalla del animal siendo borrado
             card.style.transition = 'all 0.3s ease';
@@ -79,3 +85,25 @@ async function removeFavorite(button, animalId) {
         console.error("Error de conexión:", error);
     }
 }
+
+// Lógica para exportar el JSON 
+document.getElementById('btnExportarJSON').addEventListener('click', () => {
+    if (listaFavoritosGlobal.length === 0) {
+        alert("No hay animales para exportar.");
+        return;
+    }
+
+    // Crea el contenido del archivo
+    const dataStr = JSON.stringify(listaFavoritosGlobal, null, 4);
+    const blob = new Blob([dataStr], { type: "application/json" });
+    const url = URL.createObjectURL(blob);
+    
+    // Crea un enlace invisible y lo pulsa para descargar
+    const link = document.createElement('a');
+    link.href = url;
+    link.download = "BioFinderFavorites.json";
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+    URL.revokeObjectURL(url);
+});

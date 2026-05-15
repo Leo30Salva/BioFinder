@@ -33,7 +33,7 @@ document.addEventListener("DOMContentLoaded", async () => {
                         if (busqueda === "Aracnido") busqueda = "Arácnido";
                         
                         queryParts.push(`especies=${busqueda}`);
-                        if (tituloHome) tituloHome.innerText = "Animales recomendados";
+                        if (tituloHome) tituloHome.innerText = "Animales encontrados";
                     }
                 } else {
                     if (tituloHome) tituloHome.innerText = "Todos los animales";
