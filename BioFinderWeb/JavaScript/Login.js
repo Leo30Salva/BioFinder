@@ -8,6 +8,11 @@ document.addEventListener("DOMContentLoaded", () => {
             const email = document.getElementById('logEmail').value;
             const password = document.getElementById('logPassword').value;
 
+            if (!email.trim() || !password.trim()) {
+                alert("Por favor, indica correo y contraseña, si aún no tienes cuenta regístrate.");
+                return; 
+            }
+
             // Compruebo que la cuenta exista
             try {
                 const respuesta = await fetch('http://127.0.0.1:8000/login', {
@@ -26,12 +31,16 @@ document.addEventListener("DOMContentLoaded", () => {
                     // Guardo userId en localStorage para usarlo en adelante para comprobaciones 
                     localStorage.setItem('userId', resultado.id); 
                     localStorage.setItem('userName', resultado.nombre);
+
+                    localStorage.setItem('userRol', resultado.rol);
                     
                     // Una vez se inicie sesión activo los recomendados por defecto nada más iniciar sesión
                     localStorage.setItem('mostrarRecomendados', 'true');
                     
                     // Hago la referencia a la página de preferencias
                     window.location.href = "Documentos/Preferencias.html"; 
+                } else {
+                    alert(resultado.detail || "La cuenta no existe o los datos son incorrectos.");
                 }
             } catch (error) {
                 console.error("Error de conexión:", error);

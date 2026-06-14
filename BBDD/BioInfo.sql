@@ -11,7 +11,8 @@ CREATE TABLE usuario (
     FechaNacimiento DATE NOT NULL,
     Ciudad VARCHAR(30) NOT NULL,
     Email VARCHAR(30) NOT NULL,
-	ImagenPerfil VARCHAR(500) NOT NULL,
+	ImagenPerfil VARCHAR(500) NULL,
+    Rol ENUM('admin', 'user') NOT NULL DEFAULT 'user',
     Password VARCHAR(255) NOT NULL
 );
 
@@ -30,10 +31,10 @@ CREATE TABLE animal (
     TipoAlimentacion VARCHAR(30) NOT NULL,
     Especie VARCHAR(30) NOT NULL,
     Actividad VARCHAR(15) NOT NULL,
-    -- Corregidos los paréntesis de cierre abajo
     CONSTRAINT Alimentaciones CHECK (TipoAlimentacion IN ('Herbívoro','Carnívoro','Omnívoro','Frugívoro','Insectívoro','Carroñero','Piscívoro','Detritívoros')),
     CONSTRAINT Especies CHECK (Especie IN ('Mamífero','Ave','Reptil','Anfibio','Insecto','Aracnido','Pez','Crustáceo','Molusco','Equinodermo','Cnidario','Anélido')),
-    CONSTRAINT Actividades CHECK (Actividad IN ('Diurna','Nocturna'))
+    CONSTRAINT Actividades CHECK (Actividad IN ('Diurna','Nocturna')),
+    CONSTRAINT Reproduccion CHECK (Reproduccion IN ('Ovíparos','Ovovivíparos','Vivíparos'))
 );
 
 -- Tabla Favoritos

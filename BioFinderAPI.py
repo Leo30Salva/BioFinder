@@ -1,7 +1,7 @@
 from typing import Optional, List
 from fastapi import FastAPI, HTTPException, Depends, Query
 from pydantic import BaseModel, EmailStr
-from sqlalchemy import create_engine, Column, Integer, String, Date, DateTime, ForeignKey, Boolean
+from sqlalchemy import create_engine, Column, Integer, String, Date, DateTime, ForeignKey, Boolean, Enum
 from sqlalchemy.orm import declarative_base, sessionmaker, Session
 from datetime import date, datetime
 from fastapi.middleware.cors import CORSMiddleware
@@ -10,6 +10,20 @@ from passlib.context import CryptContext # para cifrar las contraseñas
 # ========================================================================
 # 1) CONEXIÓN A MariaDB (Base de datos: animal)
 # ========================================================================
+
+#DATABASE_URL = "mysql+pymysql://admin:adminsalva123@animaldb.cqritjoz2n1t.us-east-1.rds.amazonaws.com:3306/animal"
+
+#engine = create_engine(
+#    DATABASE_URL, 
+#    connect_args={
+#        "ssl": {
+#            "ssl_mode": "REQUIRED"  # Forzamos a pymysql a usar transporte seguro
+#        }
+#    },
+#    pool_pre_ping=True
+#)
+#SessionLocal = sessionmaker(bind=engine)
+#Base = declarative_base()
 
 DATABASE_URL = "mysql+pymysql://root:root@localhost:3306/animal"
 
@@ -29,6 +43,7 @@ class Usuario(Base):
     FechaNacimiento = Column(Date, nullable=False)
     Ciudad = Column(Integer, nullable=False)
     Email = Column(String(30), nullable=False, unique=True)
+    Rol = Column(Enum('admin', 'user'), default="user", nullable=False)
     Password = Column(String(30), nullable=False)
     ImagenPerfil = Column(String(500), nullable=True)
 
@@ -164,7 +179,25 @@ def login(user_credentials: UserLogin, db: Session = Depends(get_db)):
     # Si todo está bien informo
     return {"mensaje": "Login exitoso", 
             "nombre": usuario.NombreUsuario, 
-            "id": usuario.IdUser}
+            "id": usuario.IdUser,
+            "rol": usuario.Rol}
+
+# Login de admins
+@api.get("/login-admins")
+def reparar_admins(db: Session = Depends(get_db)):
+   
+    credenciales = [
+        {"email": "salva@gmail.com", "pass": "salva"},
+        {"email": "steven@gmail.com", "pass": "steven"},
+        {"email": "esther@gmail.com", "pass": "esther"}
+    ]
+    
+    for item in credenciales:
+        hash_perfecto = pwd_context.hash(item["pass"])
+        db.query(Usuario).filter(Usuario.Email == item["email"]).update({"Password": hash_perfecto})
+    
+    db.commit()
+    return {"status": "Admins actualizados."}
 
 # endpoint para obtener la información del perfil y mostrarla
 @api.get("/usuario/{user_id}")
@@ -414,3 +447,39 @@ async def actualizar_foto_perfil(user_id: int, nueva_url: str, db: Session = Dep
     
     db.commit()
     return {"message": "Foto actualizada correctamente", "url": nueva_url}
+
+# endpoint para que los administradores puedan eliminar animales
+# Endpoint para eliminar un animal (Solo para admins en teoría)
+@api.delete("/animales/eliminar/{animal_id}")
+def eliminar_animal(animal_id: int, db: Session = Depends(get_db)):
+    animal = db.query(Animal).filter(Animal.IdAnimal == animal_id).first()
+    
+    if not animal:
+        raise HTTPException(status_code=404, detail="Animal no encontrado")
+    
+    try:
+        db.delete(animal)
+        db.commit()
+        return {"mensaje": "Animal eliminado correctamente"}
+    except Exception as e:
+        db.rollback()
+        raise HTTPException(status_code=500, detail=f"Error al eliminar: {str(e)}")
+    
+# endpoint para que los admin puedan cambiar información de un animal
+
+@api.put("/animales/actualizar/{id_animal}")
+def actualizar_animal(id_animal: int, animal_data: dict, db: Session = Depends(get_db)):
+    animal = db.query(Animal).filter(Animal.IdAnimal == id_animal).first()
+    if not animal:
+        raise HTTPException(status_code=404, detail="Animal no encontrado")
+    
+    # Actualizamos los campos recibidos
+    for key, value in animal_data.items():
+        setattr(animal, key, value)
+    
+    try:
+        db.commit()
+        return {"mensaje": "Animal actualizado correctamente"}
+    except Exception as e:
+        db.rollback()
+        raise HTTPException(status_code=500, detail=str(e))

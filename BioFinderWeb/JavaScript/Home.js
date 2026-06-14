@@ -1,3 +1,5 @@
+let animalIdParaBorrar = null;
+
 document.addEventListener("DOMContentLoaded", async () => {
     const panel = document.getElementById('filterPanel');
     const openBtn = document.getElementById('openFilters');
@@ -31,6 +33,7 @@ document.addEventListener("DOMContentLoaded", async () => {
                         if (busqueda.endsWith('s')) busqueda = busqueda.slice(0, -1);
                         if (busqueda === "Pece") busqueda = "Pez";
                         if (busqueda === "Aracnido") busqueda = "Arácnido";
+                        if (busqueda === "Reptile") busqueda = "Reptil";
                         
                         queryParts.push(`especies=${busqueda}`);
                         if (tituloHome) tituloHome.innerText = "Animales encontrados";
@@ -68,15 +71,26 @@ document.addEventListener("DOMContentLoaded", async () => {
             // Hago un foreach para crear la card de cada animal y mostrarlo en pantalla
             animales.forEach(animal => {
                 const card = document.createElement('div');
-                card.className = 'animalCard';
-                card.innerHTML = `
-                    <span class="animalCardName">${animal.NombreAnimal}</span>
-                    <div class="animalCardImgBox greenBG">
-                        <img src="${animal.ImagenURL}" alt="${animal.NombreAnimal}" onerror="this.src='../Multimedia/logo.png'">
-                    </div>
-                    <a href="AnimalDescription.html?id=${animal.IdAnimal}" class="moreInfoLink">Más información</a>
-                `;
-                contenedor.appendChild(card);
+                    card.className = 'animalCard';
+
+                    const userRol = localStorage.getItem('userRol'); 
+                    let botonBorrar = '';
+                    if (userRol === 'admin') {
+                        botonBorrar = `
+                            <button class="delete-animal-btn" onclick="abrirModalBorrar(${animal.IdAnimal})">
+                                <img src="../Multimedia/Icons/arrowBorrow.png" alt="X" style="width:16px; height:16px;">
+                            </button>`;
+                    }
+
+                    card.innerHTML = `
+                        <span class="animalCardName">${animal.NombreAnimal}</span>
+                        <div class="animalCardImgBox greenBG" style="position: relative;"> 
+                            ${botonBorrar}
+                            <img src="${animal.ImagenURL}" alt="${animal.NombreAnimal}" onerror="this.src='../Multimedia/logo.png'">
+                        </div>
+                        <a href="AnimalDescription.html?id=${animal.IdAnimal}" class="moreInfoLink">Más información</a>
+                    `;
+                    contenedor.appendChild(card);
             });
 
         } catch (error) {
@@ -107,15 +121,23 @@ document.addEventListener("DOMContentLoaded", async () => {
     // Si se selecciona el boton de aplicar filtros se muestra
     if(applyBtn) {
         applyBtn.onclick = () => {
-            const filtros = {
-                especies: Array.from(panel.querySelectorAll('.prefGridSpecies input:checked'))
-                               .map(i => i.parentElement.querySelector('span').innerText),
-                reproduccion: Array.from(panel.querySelectorAll('.prefRowReproduction input:checked'))
-                                   .map(i => i.value),
-                alimentacion: Array.from(panel.querySelectorAll('.prefGridAlim input:checked'))
-                                    .map(i => i.parentElement.textContent.trim()),
-                extinto: document.getElementById('extinctSwitch').checked
-            };
+const filtros = {
+            // CAMBIO: Mapeamos el texto y corregimos los plurales conflictivos antes de mandarlos a la API
+            especies: Array.from(panel.querySelectorAll('.prefGridSpecies input:checked'))
+                           .map(i => {
+                               let textoEspecie = i.parentElement.querySelector('span').innerText.trim();
+                               
+                               // CAMBIO: Si seleccionan "Reptiles", lo mandamos como "Reptil" para evitar que el backend lo rompa
+                               if (textoEspecie === "Reptiles") return "Reptil";
+                               
+                               return textoEspecie;
+                           }),
+            reproduccion: Array.from(panel.querySelectorAll('.prefRowReproduction input:checked'))
+                               .map(i => i.value),
+            alimentacion: Array.from(panel.querySelectorAll('.prefGridAlim input:checked'))
+                                .map(i => i.parentElement.textContent.trim()),
+            extinto: document.getElementById('extinctSwitch').checked
+        };
             
             cargarAnimales(filtros);
             panel.classList.remove('active');
@@ -123,4 +145,42 @@ document.addEventListener("DOMContentLoaded", async () => {
     }
 
     cargarAnimales(); 
+
+    // Lógica para el modal de borrado 
+    
+    window.abrirModalBorrar = (id) => {
+        animalIdParaBorrar = id;
+        const modal = document.getElementById('modalBorrar');
+        if(modal) modal.style.display = 'flex';
+    };
+
+    const btnCancelar = document.getElementById('cancelarBorrar');
+    if(btnCancelar) {
+        btnCancelar.onclick = () => {
+            document.getElementById('modalBorrar').style.display = 'none';
+            animalIdParaBorrar = null;
+        };
+    }
+
+    const btnConfirmar = document.getElementById('confirmarBorrar');
+    if(btnConfirmar) {
+        btnConfirmar.onclick = async () => {
+            if (animalIdParaBorrar) {
+                try {
+                    const respuesta = await fetch(`http://127.0.0.1:8000/animales/eliminar/${animalIdParaBorrar}`, {
+                        method: 'DELETE'
+                    });
+                    
+                    if (respuesta.ok) {
+                        alert("Animal eliminado de la base de datos");
+                        location.reload(); // Recarga la página para actualizar la lista
+                    } else {
+                        alert("Error al intentar eliminar el animal");
+                    }
+                } catch (error) {
+                    console.error("Error en la petición DELETE:", error);
+                }
+            }
+        };
+    }
 });

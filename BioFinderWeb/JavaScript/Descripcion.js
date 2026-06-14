@@ -1,4 +1,64 @@
 document.addEventListener("DOMContentLoaded", async () => {
+
+
+    const OPCIONES_ADMIN = {
+        Especie: ['Mamífero','Ave','Reptil','Anfibio','Insecto','Aracnido','Pez','Crustáceo','Molusco','Equinodermo','Cnidario','Anélido'],
+        TipoAlimentacion: ['Herbívoro','Carnívoro','Omnívoro','Frugívoro','Insectívoro','Carroñero','Piscívoro','Detritívoros'],
+        Actividad: ['Diurna','Nocturna'],
+        Reproduccion: ['Ovíparos','Ovovivíparos','Vivíparos']
+    };
+
+    const crearSelectorAdmin = (id, property, animal) => {
+    const elemento = document.getElementById(id);
+
+    const valorRealAPI = animal[property] !== undefined ? String(animal[property]).trim() : "";
+
+    elemento.textContent = valorRealAPI;
+    
+    
+    if (userRol !== 'admin' || !elemento) return;
+
+    elemento.style.cursor = "pointer";
+    elemento.style.borderBottom = "2px solid #6200ea";
+
+    elemento.onclick = () => {
+        if (elemento.querySelector('select')) return;
+
+        const valorActual = elemento.textContent.trim();
+        const select = document.createElement('select');
+        select.className = "admin-select-field"; 
+
+        OPCIONES_ADMIN[property].forEach(opt => {
+            const o = document.createElement('option');
+            o.value = opt;
+            o.textContent = opt;
+            
+            if (opt === valorActual) o.selected = true;
+            select.appendChild(o);
+        });
+
+        elemento.textContent = "";
+        elemento.appendChild(select);
+
+        select.onchange = () => {
+            elemento.textContent = select.value;
+            cambiosRealizados = true;
+        };
+
+        // Si el usuario hace clic fuera sin cambiar nada
+        select.onblur = () => {
+            if (elemento.contains(select)) {
+                elemento.textContent = select.value;
+            }
+        };
+        select.focus();
+    };
+    };
+
+    // Variables para el cambio de info para los admin
+    let cambiosRealizados = false;
+    const userRol = localStorage.getItem('userRol');
+
     const params = new URLSearchParams(window.location.search);
     const animalId = params.get('id');
     const checkFavorito = document.getElementById('checkFavorito');
@@ -24,20 +84,46 @@ document.addEventListener("DOMContentLoaded", async () => {
         const animal = await respuesta.json();
 
         // Referencia a los ID de cada campo para rellenar la pantalla de cada animal
-        document.querySelector(".detailsAnimalName").textContent = animal.NombreAnimal;
-        document.getElementById("imgAnimal").src = animal.ImagenURL;
-        
-        document.getElementById("valActividad").textContent = animal.Actividad;
-        document.getElementById("valNombreCientifico").textContent = animal.NombreCientifico;
-        document.getElementById("valEspecie").textContent = animal.Especie;
-        
-        document.getElementById("valVida").textContent = animal.EsperanzaVida;
-        document.getElementById("valAlim").textContent = animal.TipoAlimentacion;
-        
-        document.getElementById("valExtinto").textContent = animal.Extinto ? "Sí" : "No";
+        const configurarEditable = (id, property) => {
+            const elemento = document.getElementById(id);
+            if (!elemento) return;
+            if (userRol === 'admin') {
+                elemento.contentEditable = "true";
+                elemento.style.borderBottom = "1px dashed #6200ea"; 
+                elemento.addEventListener('input', () => cambiosRealizados = true);
+            }
+            elemento.textContent = animal[property];
+        };
 
-        document.getElementById("descTexto").textContent = animal.Descripcion;
-        document.getElementById("reproTexto").textContent = animal.Reproduccion;
+        // El título
+        const tituloNombre = document.querySelector(".detailsAnimalName");
+        tituloNombre.textContent = animal.NombreAnimal;
+        if(userRol === 'admin') {
+            tituloNombre.contentEditable = "true";
+            tituloNombre.addEventListener('input', () => cambiosRealizados = true);
+        }
+
+        // Los campos automáticos
+        crearSelectorAdmin("valActividad", "Actividad", animal); 
+        configurarEditable("valNombreCientifico", "NombreCientifico");
+        crearSelectorAdmin("valEspecie", "Especie", animal);     
+        configurarEditable("valVida", "EsperanzaVida");
+        crearSelectorAdmin("valAlim", "TipoAlimentacion", animal);
+        configurarEditable("descTexto", "Descripcion");
+        crearSelectorAdmin("reproTexto", "Reproduccion", animal); 
+
+        // El interruptor de Extinto
+        const valExtinto = document.getElementById("valExtinto");
+        valExtinto.textContent = animal.Extinto ? "Sí" : "No";
+        if(userRol === 'admin') {
+            valExtinto.style.cursor = "pointer";
+            valExtinto.onclick = () => {
+                valExtinto.textContent = valExtinto.textContent === "Sí" ? "No" : "Sí";
+                cambiosRealizados = true;
+            };
+        }
+
+        document.getElementById("imgAnimal").src = animal.ImagenURL;
 
         // Si el animal tiene ubicaciones las muestro
         if (animal.Ubicacion) {
@@ -108,4 +194,50 @@ document.addEventListener("DOMContentLoaded", async () => {
     } catch (error) {
         console.error("Error:", error);
     }
+
+
+    const backButton = document.querySelector(".detailsBackButton");
+    if (backButton) {
+        backButton.addEventListener('click', (e) => {
+            if (cambiosRealizados && userRol === 'admin') {
+                e.preventDefault(); 
+                document.getElementById("modalGuardar").style.display = "flex";
+            }
+        });
+    }
+
+    const btnSi = document.getElementById("btnGuardarSi");
+    const btnNo = document.getElementById("btnGuardarNo");
+
+    if (btnNo) {
+        btnNo.onclick = () => window.location.href = "Home.html";
+    }
+
+    if (btnSi) {
+        btnSi.onclick = async () => {
+            const bodyUpdate = {
+                NombreAnimal: document.querySelector(".detailsAnimalName").textContent,
+                Actividad: document.getElementById("valActividad").textContent,
+                NombreCientifico: document.getElementById("valNombreCientifico").textContent,
+                Especie: document.getElementById("valEspecie").textContent,
+                EsperanzaVida: document.getElementById("valVida").textContent,
+                TipoAlimentacion: document.getElementById("valAlim").textContent,
+                Descripcion: document.getElementById("descTexto").textContent,
+                Reproduccion: document.getElementById("reproTexto").textContent,
+                Extinto: document.getElementById("valExtinto").textContent === "Sí"
+            };
+
+            const res = await fetch(`http://127.0.0.1:8000/animales/actualizar/${animalId}`, {
+                method: 'PUT',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(bodyUpdate)
+            });
+
+            if (res.ok) {
+                alert("Cambios guardados");
+                window.location.href = "Home.html";
+            }
+        };
+    }
+
 });

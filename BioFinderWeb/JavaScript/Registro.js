@@ -13,6 +13,11 @@ document.addEventListener("DOMContentLoaded", () => {
             const ciudad = document.getElementById('regCiudad').value;
             const pass = document.getElementById('regPassword').value;
 
+            if (!nombre.trim() || !email.trim() || !fecha.trim() || !ciudad.trim() || !pass.trim()) {
+                    alert("Por favor, rellene todos los campos para completar el registro.");
+                    return; 
+            }
+
             const datosUsuario = {
                 NombreUsuario: nombre,
                 Email: email,
